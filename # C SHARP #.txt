@@ -1,0 +1,382 @@
+# C SHARP #
+
+1) ARCHITECTURE OF .NET FRAMEWORK
+
+# Common Language Runtime is the execution engine that handles running application.
+# Class Library provides a set of API's and types for common functionality.
+
+2) we use first code to write and print hello world as 
+
+
+namespace hello{
+class program{
+static void main(string[] args){
+
+console.writeline("hello world");
+console.readline();
+}
+}
+}
+
+
+(writeline) can write stuffs in the next line while (write) only write it in the same line
+
+
+// COMMENTS next part
+
+## DATA TYPES IN C#  ##
+
+Integer - int A;
+
+Floating point number - float AF;( REMEMBER TO ALWAYS PUT "F" AFTER YOU HAVE ENTERED THE NUMBER FOR FLOAT )
+
+character - char A = 'a';
+Boolean - bool A = true;
+string- string inp = "harry";
+
+
+
+# TYPE CASTING #
+THERE ARE TWO TYPES OF TYPE CASTING
+
+1) IMPLICIT TYPE CASTING
+
+CHAR ---> INT ---> LONG ---> FLOAT ---> DOUBLE --->// ( ---> IS USED TO REPRESENT CONVERSION)
+
+
+
+2) EXPLICIT TYPE CASTING
+
+int x = (int) 3.41;
+console.WriteLine(x);
+console.ReadLine();
+
+WE CAN ALSO FOLLOW SOME BUILT IN METHODS IN THE C# FOR WRITING OR TYPE CASTING
+
+float varr = Convert.ToInt32(3.28);
+
+
+
+# TAKING INPUT FROM THE USER
+
+
+Console.Write("How many candies do you have?: ");
+string a = Console.ReadLine();
+Console.Write("How many candies were given: ");
+string x = Console.ReadLine();
+Console.WriteLine("your total condies are " + (Convert.ToInt32(a) + Convert.ToInt32(x)));
+Console.ReadLine();
+
+
+# OPERATORS IN C# #
+
+1) arithematic operators:
+
+int a = 39;
+int b = 32;
+
+Console.WriteLine("Sum: " + (a + b));
+Console.WriteLine("Sub: " + (a - b));
+Console.WriteLine("Mul: " + (a * b));
+Console.WriteLine("Div: " + (a / b));
+
+Console.ReadLine();
+
+2) assigment operators:
+
+int a = 39;
+int b = a;
+b += 8;
+b -= 8;
+b *= 8;
+b /= 8;
+Console.WriteLine(b);
+Console.ReadLine();
+
+
+
+3) logical operators:
+
+Console.WriteLine(true || false);
+Console.WriteLine(true && false);
+Console.WriteLine(true && true);
+Console.WriteLine(false && false);
+Console.WriteLine(false && true);
+Console.WriteLine(true || true);
+Console.WriteLine(false || false);
+Console.WriteLine(false || true);
+
+Console.ReadLine();
+
+
+
+4) comparison operator:
+
+Console.WriteLine(800 > 44);
+Console.WriteLine(800 >= 4455);
+Console.WriteLine(800 <= 4);
+Console.WriteLine(800 > 44888);
+Console.WriteLine(8 > 44);
+
+Console.ReadLine();
+
+
+# MATH CLASS IN C# #
+
+int a = Math.Max(90, 299);
+Console.WriteLine(a);
+Console.ReadLine();
+
+int a = Math.Min(90, 299);
+Console.WriteLine(a);
+Console.ReadLine();
+
+double a = Math.Sqrt(36);
+Console.WriteLine(a);
+Console.ReadLine();
+
+## STRING METHODS IN C# ##
+
+string a = "Hello Gauri TMKC";
+Console.WriteLine(a.Length);
+Console.WriteLine(a.ToUpper());
+Console.WriteLine(a.ToLower());
+Console.WriteLine(string.Concat(a ,  "you are very good"));
+
+Console.ReadLine();
+
+# STRING INTERPOLATION #
+
+string name = Console.ReadLine();
+string count = Console.ReadLine();
+
+Console.WriteLine($"Hello mister {name}. You have a Total of {count} Condoms");
+Console.ReadLine();
+
+Console.WriteLine(a[1]);
+Console.WriteLine(a.Indexof("Gauri"));
+
+Console.ReadLine();
+
+# ESCAPE SEQUENCE CHARACTER INN C# #
+ 
+YOU CAN USE \n \t TO GIVE NEXT LINE TO THE TEXT AND SPACE TO THE WORDING OF YOUR STRING.
+
+# IF/ELSE CONDITION STATEMENT IN C# # 
+
+
+int age = 22;
+if (age > 18)
+{
+    Console.WriteLine("you are eligible for voting");
+}
+
+else
+{
+    Console.WriteLine("you are not eligible");
+}
+
+Console.ReadLine();
+
+# While Taking user Input:
+
+Console.WriteLine("Enter your Age: ");
+string agestr = Console.ReadLine();
+int age = Convert.ToInt32(agestr);
+if (age > 18)
+{
+    Console.WriteLine("you are eligible for voting");
+}
+
+else
+{
+    Console.WriteLine("you are not eligible");
+}
+
+Console.ReadLine();
+##############################################
+int age = 30;
+switch (age)
+{
+    case 10:
+        Console.WriteLine("Wait until you turn 18");
+        break;
+    case 20:
+        Console.WriteLine("still wait for 18");
+        break;
+    case 30:
+        Console.WriteLine("Now you Drink alcohol");
+        break;
+    default:
+        Console.WriteLine("Enjoy Age LImit");
+        break;
+
+}
+Console.ReadLine();
+##################################################
+
+ # LOOPS USED IN C# #
+
+ WE WILL START FROM WHILE LOOPS
+
+int i = 0;
+while (i < 5)
+{
+    Console.WriteLine(i);
+    i++;
+}
+Console.ReadLine();
+
+## DO WHILE LOOP IN C# ##
+
+int i = 0;
+do
+{
+    Console.WriteLine(i + 1);
+    i++;
+}
+while (i < 5);
+Console.ReadLine();
+
+## FOR LOOP IN C# ##
+
+ int i = 0;
+ for(i = 0; i < 9; i++)
+ {
+     Console.WriteLine(i+1);
+
+ }
+ Console.ReadLine();
+
+BREAK AND CONTINUE CONCEPTS IN C# WHICH IS SIMILAR TO C AND C++
+
+## METHODS IN C# ##
+
+namespace Hello{
+internal class program{
+static void Greet(){
+Console.WriteLine("Hello World");
+}
+}
+
+static void Main(string[] args){
+Conosle.Greet();
+console.ReadLine();
+}
+
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Greet(string name)
+        {
+            Console.WriteLine("Good Morning " + name);
+        }
+        static void Main(string[] args)
+        {
+            Greet("Koko");
+            Console.ReadLine();
+
+
+
+
+
+
+        }
+    }
+}
+
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static float Average(int a, int b, int c)
+        {
+            float sum = a + b + c;
+            return sum / 3;
+            //Console.WriteLine("Good Morning " + name);
+        }
+        static void Main(string[] args)
+        {
+            //Greet("Koko");
+            Console.WriteLine(Average(3, 6, 8));
+            Console.ReadLine();
+
+
+
+
+
+
+        }
+    }
+}
+
+
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static float SUM(int a, int b, int c)
+        {
+            int sol = a + b + c;
+            return sol;
+            //Console.WriteLine("Good Morning " + name);
+        }
+        static void Main(string[] args)
+        {
+            //Greet("Koko");
+            Console.WriteLine(SUM(3, 6, 8));
+            Console.ReadLine();
+
+
+
+
+
+
+        }
+    }
+}
+
+
+# OBJECT ORIENTED PROGRAMMING IN C# #
+
+Program.cs
+
+        static void Main(string[] args)
+       {
+           //Greet("Koko");
+            //Console.WriteLine(SUM(3, 6, 8));
+           //Console.ReadLine();
+        player Gauri = new player();
+        Console.WriteLine(Gauri.Health);
+            Gauri.setHealth(45);
+            Console.WriteLine(Gauri.Health);
+            Console.ReadLine();
+
+
+
+
+
+        }
+    }
+}
+
+
+player.cs
+
+namespace ConsoleApp1
+{
+    internal class player
+    {
+        public string name = "Gauri";
+        public int Health = 99;
+
+        public void setHealth(int h)
+        {
+            Health = h;
+        }
+    }
+}

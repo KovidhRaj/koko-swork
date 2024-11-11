@@ -1,0 +1,179 @@
+# python learning #
+
+1) Comments in a python 
+
+USUALLY WE USE (#) IN PYTHON FOR WRITTING A PYTHON COMMENT BUT WE CAN ALSO USE( ''' ASADAS ''')
+WHICH IS ALSO CALLED A MULTILINE COMMENT USED TO WRITE COMMENT IN MULTIPLE LINES
+
+2) STRING IN PYTHON
+
+we can directly write (string = "kiovoov") unlike c or c++ where you needed to specify the this is a string and point it out using pointer
+
+3) VARIABLES IN PYTHON 
+
+in python we can directly represent a variable using words but they might not be needed to represent various variables and moreover in python we will have NUMBERS,STRINGS,LISTS,TUPLES,DICTIONARIES.
+
+4) OPERATORS IN PYTHON
+ 
+print("The sum of 3+2 =",3+2)
+print("the diff between 5-2 =",5-2)
+print("the multipl between 5*2 =",5*2)
+print("the diff between 4/2 =",4/2)
+
+5) MORE ABOUT STRING
+
+print("%s"%('this is string'))
+print('this is a print statment 1' end ="")
+print('this is a print statment 2')
+print(" Gauri "*5)
+
+6) #LISTS
+
+# LISTS
+Colleges = ["IIT","NIT","IIIT","GFTI"]
+print(Colleges[0])
+
+## WE CAN ALSO ALTER THE ORIGINAL LIST IN PYTHON ##
+ 
+Colleges[3] = "COEP"
+print(Colleges)
+
+Colleges.append("GFTI")
+print(Colleges)
+
+Colleges.insert(2,'COEP')
+print(Colleges)
+
+Colleges.remove('NIT')
+print(Colleges)
+
+Colleges.remove('COEP')
+print(Colleges)
+print(len(Colleges))
+
+7) # TUPLES
+
+tup1 = (1,2,3)
+list1 =list(tup1)
+print(list1)
+print(tup1[1])
+
+8) # DICTIONARIES
+
+names = {'kovidh':20,
+         'gauri': 17,
+         'raghav': 40,
+         'koeako': 50}
+print(names['raghav'])
+
+names['raghav'] = 90
+
+print(names['raghav'])
+print(names.keys())
+print(names.values())
+
+
+9)# IF/ELSE STATEMENTS
+
+print("please enter name: ")
+name = input()
+print("please enter number: ")
+number = int(input())
+if(number>30):
+    print("you can have drinks like beer and vodka")
+elif(number<30):
+    print("you are under age and cannot drink")
+else:
+    print("please exit the BAR")
+
+
+10) # LOOPS
+
+# FOR LOOP
+
+print("Enter number: ")
+n = int(input())
+for i in range(0,10):
+    print(n*i)
+list1 = [[1,2,3],[4,5,6],[7,8,9]]
+for item in list1:
+    for i in item:
+        print(i)
+
+# WHILE LOOP
+
+print("enter your prefered numebr: ")
+n = int(input())
+if(n<5):
+        print("sorry the code cannot run!!!")
+
+while(n>5):
+    print(n+1)
+    break
+
+11) #  FUNCTION WORKING WITH PYTHON
+
+def Average(num1, num2):
+    return (num1+num2)/2
+print(Average(4, 4))
+
+12) # STRING IN PYTHON
+
+string = "this is a string"
+print(string[0:16]) #writes everything
+print(string[-2:]) #it only writes last two elements
+print(string[0:-2]) #it deletes last two elements
+print(string[:-2]) #same as above
+print(string[-2:0]) #nothing
+print(string.capitalize()) #it capitalises only the first element of the sentence
+print(string.find("is"))
+print(string.replace("a","the"))
+
+13) FILE IO (WRITING THE CONTENTS)
+
+# FILE IO
+
+file1 = open("koko.txt","wb")
+print(file1.mode)
+print(file1.name)
+file1.write(bytes("this is what im gonna write in the notes","UTF-8"))
+file1.close()
+
+# FILE IO (READING THE CONTENTS)
+
+# FILE IO- READING THE CONTENETS OF THE FILES
+
+file1 = open("koko.txt","r+")
+contents = file1.read()
+print(contents)
+
+# OBJECT ORIENTED PROGRAMMING
+
+class Employee:
+    _name = None
+    _id = 0
+    _salary = 0
+
+    def _init_(self,name,id):#constructer
+        self._name = name
+        self._id = id
+
+    def set_name(self,name):
+        self._name = name
+    def get_name(self):
+        return self._name
+    def set_id(self,id):
+        self._id = id
+    def get_id(self):
+        return self._id
+
+
+kovidh = Employee()
+#print(kovidh.get_id())
+kovidh.set_name('kovidh')
+print(kovidh.get_name())
+
+kovidh.set_id('KOKO0909')
+print(kovidh.get_id())
+
+

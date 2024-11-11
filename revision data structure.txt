@@ -1,0 +1,288 @@
+ ### REVISION OF DATA STRUCTURE ###
+
+# ARRAYS
+1)
+ ONE DIMENSIONAL ARRAY
+arr[i];
+i) SIZE OF ARRAY = (U-L+1)
+ii) ADDRESS OF ARRAY(OR ITS ELELEMENT) = BA(BASE ADDRESS OF ELEMENT)+ S[i-L]
+ here i(size of array),L(lower limit), S is of element
+ 
+ TWO DIMENSIONAL ARRAY
+arr[i][j];
+ADDRESS OF ARRAY = BA + S[(i-Lr)(Uc-Lc+1)+(j-Lc)] *this one is used for column
+ADDRESS OF ARRAY = BA + S[(j-Lc)(Ur-Lr+1)+(i-Lr)] * this one is used for rows.
+
+2) Traversal of the elements in an arrays
+
+for(int i=0;i<n;i++){
+printf(arr[i]);
+}
+
+3) Insertion of elements in arrays
+
+* BEST CASE WOULD BE IF YOU CAN INSERT IT IN AT THE END OF THE ARRAY
+* WORST CASE WOULD BE IF YOU CAN INSERT IT AT THE START OF THE ARRAY
+
+## DURING INSERTION ELEMENTS MOVES AT RIGHT 
+## DURING DELETION IT MOVES AT LEFT
+POSITION = INDEX + 1
+INDEX = POSITION - 1
+
+4) Deletion of element in an array
+
+DURING DELETION THE ELEMENTS TRIES TO SHIFT TOWARDS LEFT SIDE OF THE ARRAY
+
+**BEST CASE IS TO DELETE THE LAST ELEMENTS OF THE ARRAY
+**WORST CASE IS TO DELETE THE FIRST ELEMENT OF THE ARRAY
+5) Searching of element in the array
+
+it is a continuous operation in a linear progression 
+
+# COMPARISON BETWEEN ARRAY AND LINKED LIST 
+
+# LINKED LIST
+
+1) basic of linear linked list with head, link and data
+
+
+2) traversal 
+
+current = head
+while(current != NULL){
+printf(current->data);
+current = current->next;
+}
+
+3) searching
+
+current = head;
+while(current != NULL){
+if(current->data == keay){
+return current;
+}
+current = current->next;
+}
+
+4) Insertion 
+i)At Beginning
+
+new->next = head;
+new = head;
+
+ii) After a node
+
+new->next = prev->next;
+prev->next = new;
+
+iii) At end
+
+1)reach till last node
+2) last->next = new;
+3)new->next = null;
+
+4) Deletion
+
+i) At the Start:
+
+del = head
+head = del->link
+free(del)
+
+ii) After a Node
+
+del = prev->link
+prev->link = del->link
+free(del)
+
+iii) at the end
+del->next=Null
+prev->next = NULL
+free(del)
+
+5) DOUBLY LINKED LIST
+
+i) Insert At beginning
+
+new->next = head;
+head->prev = new;
+head = new;
+
+ii) Insert at any nOde
+
+new->next = temp->next;
+temp->next->prev = new;
+temp->next=new;
+new->prev = temp;
+
+iii) Insert at END node
+
+last->next = new->prev;
+new->next = NULL:
+
+
+6) DELETION (DOBULY LINKED LIST)
+
+i) at beginning
+
+temp = head;
+head = head->next;
+head->prev = NULL;
+free(temp);
+
+
+ii) after a Node
+
+p->next = p->prev->next;
+p->next->prev = p->prev;
+free(p);
+
+iii) At end
+
+temp = p->next;
+p->next = NULL;
+free(temp);
+
+7) Circular Linked List
+
+current = head
+while(current->next != head){
+current = current->next;
+}
+temp = head;
+head = head->next;
+current->next = head;
+free(temp)
+
+8) STACK
+
+## PUSH ##
+
+push(arr,n,TOS,x){
+if(TOS == n-1){
+printf("the stack is full");
+}
+TOS = TOS+1;
+arr[TOS] = x;
+}
+
+
+## POP ##
+
+pop(arr,n,TOS){
+if(TOS==-1){
+printf("stack is empty"):
+}
+x = arr[TOS]
+TOS = TOS-1;
+return(x);
+}
+
+9) 
+
+INFIX : a+b*x+y (l-R-r)
+PREFIX:++ a*bxy (R-l-r)
+POSTFIX:abx*+y+ (l-r-R)
+
+PRIORITY CHART
+
+^(R->L)
+*/(L->R)
++-(L->R)
+
+
+10) QUEUE
+
+we use front and rear
+
+i) Overflow Condition: (Rear = n-1)
+ii) 1st element Insertion Condition: (f == r == -1) f=r=0 (after insertion)
+iii) Underflow Condition: (f = r = -1)
+iv) Only 1 element In Queue  
+
+we do enqueue(insertion) and dequeue(deletion)
+
+## Implementation Using Linked List
+
+front:
+
+temp = front;
+front = front->next;
+free(temp);
+
+rear:
+
+rear->next = new;
+rear = new;
+
+11) TREE
+
+i) root
+ii) leaf node
+iii) parent node
+iv) children
+v) Non Leaf Node
+vi) Path
+
+ancestor and descendant
+
+degree of node = (A = 2) (B = 2) (example given in the video)
+
+Depth : Root -> node
+Height : node -> leaf
+
+## BINARY TREE ##
+
+a binary tree can have atmost 2 children
+
+no. of nodes(max) = 2^n+1 - 1
+no. of nodes(min) = n+1;
+
+1) full BT (0 or 2)
+
+2) Complete BT ( left to right)(0,1,2) all the lowest level leaf must come from left to right direction
+
+3) Perfect BT(all the lowest level leaf must be same in number)
+all must have 2 children 
+
+12) TREE TRAVERSAL 
+
+i) Preorder (ROOT,left,right)
+ii) In order (left,ROOT,right)
+iii) Post order(left,right,ROOT)
+     
+### BINARY TREE USING ARRAY ###
+
+Root at -> 1
+Left child -> 2*i;
+right child -> 2*i + 1;
+
+### BINARY TREE IN LINKED LIST ###
+
+### BST(BINARY SEARCH TREE) ###
+
+HERE THE VALUE OF LEFT IS <(ALWAYS) ROOT AND RIGHT > ROOT
+
+l<R and r>R
+
+## Inserting ##
+
+
+15) AVL TREE
+ IT IS A SELF BALANCING BINARY SEARCH TREE
+
+BINARY FACTOR = H(LST(n)) - H(RST(n))
+
+
+
+
+B-TREE:
+
+PSEUDO CODE:
+
+1) ONLY MAIN FUNCTIONS TO WRITE ALONG WITH THEORY:
+
+SPLIT FUNCTION:
+
+struct BTreeNode* SplitTree(struct BTreeNode* parent,int i,struct BTreeNode* child){
+ 

@@ -1,0 +1,1219 @@
+# NOTES FOR HTML, CSS, JAVASCRIPT, PHP, SQL
+
+# NOTES FOR CSS FROM SCRATCH (casading style sheets)
+
+
+1)SYNTAX of CSS
+
+p(selector){color(property):blue(value);}
+
+2)INLINE,INTERNAL AND EXTERNAL CSS
+
+the <style> tag of css is only used under <head> tag (for internal css)
+
+EXp:
+
+<style>
+body{wdacs7ssda:dsaa}
+</style>
+
+And one more thing to point is that inline CSS content is given more priority than internal CSS
+now let us use <line rel> tag for external functioning
+
+<link rel="stylesheet" href="anyfile.css">
+in order to give precedence for the order
+
+INLINE > INTERNAL + EXTERNAL
+
+BUT in terms of interal and external
+
+where ever you have placed <link rel> will support to the css link accordingly.
+
+3) SELECTORS
+
+CSS element selector
+CSS id selector
+CSS class Selectors
+The CSS grouping Selector
+
+<p> if you contradict with id and class then in css class will be change able but 
+not id and if you want to make it work in css <style> then type .classNAME and id it is 
+#idNAME
+
+4) USING CHROME DEVELOPER TOOLS 
+just need to do all css and html stuff in google chrome
+
+5) FONTS IN CSS
+
+<style>
+p{
+fonts-family:cursive;
+font-size:23px; (HERE PX is pixels)
+line-height:1.89em;(line-height is spacing between first paragraph and second paragraphs.
+font-weight:bold;
+}
+span{(inliner of that specific paragraph.
+font-style:italics;
+}
+</style>
+
+6) COLORS IN CSS
+<style>
+#firstpara or secondpara...{
+color:red;(color by name)
+color:rgb(233,554,199);(color by rgb value)
+color:#ff22f3;(color by hex values)
+}
+
+7) BORDERS AND BACKGROUNDS
+<style>
+#firstpara{
+background-color:red;
+height: 500px;
+width: 500pcx;
+border-width: 4px;
+border-style:solid;
+border-radius:dadpx;
+background-image:url('sadas');
+background-repeat:no-repeat;
+background-position:center center;
+}
+</style>
+
+8) BOX MDOEL,MARGIN,PADDING.
+
+it follows a pattern of CONTENT>PADDING>>BORDER>MARGIN.
+<style>
+.container{
+border: 4px solid;
+background-image:url(' ');
+background-color:rbg(299,20,100);
+padding: 34px(top) 122px(right) 54px(bottom) 90px(left);
+//padding: 23px 20px;
+margin: 29px 100px;
+border-radius:90px;
+width:290px;
+box-sizing:border-box;
+}
+</style>
+
+9)FLOAT AND CLEAR
+<head>
+<title> Alignment </title>
+<style>
+*{
+}
+
+.container{
+width: 900px;
+border: 3px solid purple;
+
+
+}
+
+.items{
+border: 3px solid gray;
+margin: 12px 3px;
+padding: 12px 3px;
+backgroun: light red;
+
+}
+
+</style>
+</head>
+<body>
+<div class = "container">
+<div id = "fruits" class = "items">
+<h3> FRUITS </h3>
+<p id = "fruitspara" class = "para">
+</p>
+</div>
+<div id ="computers" class = "items">
+<h3> COMPUTERS </h3>
+<p id ="computerpara" class ="para">
+</p>
+</div>
+</div>
+</body>
+
+10) STYLING LINKS AND BUTTONS
+
+pseudo selectors and more editing
+<style>
+.container{
+border: 3px solid red;
+background-color:light yellow;
+margin: 12px 3px;
+padding: 12px 3px;
+width: 666px;
+}
+.btn{
+background-color: crimson;
+border-radius:3px;
+padding:6px;
+border: none;
+cursor:pointer;
+font-size: 13px;
+}
+a{
+text-decoration: none;
+}
+a:hover{
+color:maroon;
+background: blue;
+}
+a:visited{
+
+}
+
+a:active{
+
+}
+</style>
+<a href= "" class = "btn">read more</a>
+<button class ="btn">contact us</button>
+
+11) CREATING A NAVIGATING MENU
+
+<style>
+.navbar{
+background-color: red;
+border-radius:30px;
+}
+.navbar ul{
+overflow: auto;
+}
+.navbar li{
+float:left;
+list-style: none;
+margin: 13px 20px;
+
+}
+.navbar li  a{
+padding 3px 3px;
+text-decoration:none;
+color: white;
+
+}
+</style>
+
+<body>
+<header>
+<nav class ="navbar">
+<ul>
+<li> Home </li>
+<li> Details </li>
+<li> Contacts </li>
+</ul>
+
+</header>
+
+</body>
+
+12) CSS DISPLAY PROPERTIES
+
+ header {
+            border: 2px solid red;
+            margin: auto;
+    width: 1200px;
+        }
+ HERE HEADER WILL HAVE BLOCK ELEMENT AND NOT INLINE ELEMENT
+
+DISPLAY INLINE IS SOMETHING THAT WILL TAKE ALL THE ELEMENTS CONTAING THAT SPECIFIC INLINE
+AND 
+img {
+            margin: auto;
+            display: block;
+            width: 34px;
+        }
+DISPLAY:BLOCK HELPS AND MAKES IT EASY TO ALIGN THE BLOCK ELEMENTS OR INLINE ELEMENTS
+
+The next problem which arises is that when we stretch the full width of the page, the text in the heading moves towards left. So to move it towards the center, we can set the property of text-alignment as center.
+Display inline means it will take the space according to the size of the element. Display block means we can set its width and by margin manually.
+
+Now suppose we want to make an element inline as well as customize its width too, then in that case we can use inline-block. To understand it, first we will add three divs with some texts in it and then style it. To appear those as a box, we can take the help of container and box class. We can style the box element as
+
+IMP:
+
+.box {
+            border: 4px solid black;
+            background-color: grey;
+            margin: 4px 0px;
+            padding: 23px;
+            width: 33%;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+
+The inline-block property here allows us to change the width of inline elements also. To ensure that all the three blocks come in a single line, we can use the property box-sizing. It ensure that the width we provide is not changed including padding and margin.
+
+
+13) POSITION ABSOLUTE,RELATIVE,FIXED AND STICKY
+ 
+
+# Types Of Position Property :
+ There are five types of position property :
+
+ static
+
+ relative
+
+ absolute
+
+ fixed
+
+ sticky
+
+# 
+
+ <style>
+        .box{
+            border: 2px solid red;
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+<video autoplay loop muted plays-inline>
+<source src="vid.mp4" type="video/mp4>
+</video>
+</body>
+
+
+
+background-image:url("https://external-preview.redd.it/xg-qgOLn2qmWWXlSPTq8VXo43CJWms3xu8Ip6oxWz1k.png?format=pjpg&auto=webp&s=df2f9064e606c2706e4948d825235942947aa91d") ;
+
+14) VISIBILITY AND Z-INDEX
+
+Visibility property is used to hide or show an HTML element without changing the layout of the page.
+The hidden element uses the space on the page because it is still there, but it is not visible to the user.
+Now, we will change the visibility from visible to hidden of box2 for a better understanding of visibility property. Here is the CSS used :
+
+
+<style>
+        .box {
+            width: 170px;
+            height: 170px;
+            border: 2px solid black;
+        }
+        #box1 {
+            background-color: greenyellow;
+        }
+        #box2 {
+            background-color: rebeccapurple;
+            visibility: hidden;
+        }
+        #box3 {
+            background-color: blue;
+        }
+        #box4 {
+            background-color: lightcoral;
+        }
+
+Difference Between display:none; and visibility:hidden; 
+There is a minor difference between the display: none; and visibility:hidden; property of CSS. Let's understand this difference with the help of the boxes that we created earlier.
+
+Use the following CSS for box2 :
+
+ #box2 {
+            background-color: rebeccapurple;
+            display: none;
+        }
+
+In the above image, you can clearly see that box2 is completely removed from the webpage, and there is no empty space left on the page. But, when we used the visibility: hidden property, the box2 element was still occupying the space.
+
+
+IMPORTANT FACT: display:none; - It completely removes an HTML tag from the web page like it was never there.
+visibility:hidden;  - It makes the tag invisible but will not remove the element, and it will still occupy the space on the page.
+
+
+# Z-INDEX PROPERTY....
+
+
+whenever HTML elements collapse with each other, then the element with smaller z-index value will be covered by the element with larger z-index value.
+
+
+NOTE !!: Z-index does not work on static position value. It only works on the elements with position: relative, absolute, fixed, or sticky.  We are changing the positions of box1 and box2 by applying the CSS given below:
+
+  #box1 {
+            top: 69px;
+            position: relative;
+            background-color: greenyellow;
+        }
+        #box2 {
+            top: 34px;
+            position: relative;
+            background-color: rebeccapurple;
+        }
+
+
+       #box1 {
+            top: 69px;
+            position: relative;
+            background-color: greenyellow;
+            z-index: 1;
+        }
+        #box2 {
+            top: 34px;
+            position: relative;
+            background-color: rebeccapurple;
+            z-index: 0;
+        }
+
+
+You can see that the box1 is overlapping the box2 because the z-index value of box1 is greater than the z-index value of box2. So, that's how you can easily change the visibility and z-index value of an HTML element.
+
+15) FLEXBOX
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexbox Tutorial</title>
+    <style>
+        .container{
+            height: 544px; 
+            width: 100%;
+            border: 2px solid black;
+            display: flex; /* Initialize the container as a flex box */
+            
+            /* Flex properties for a flex container */
+
+            /* flex-direction: row; (Default value of flex-direction is row) */
+            /* flex-direction: column;
+            flex-direction: row-reverse;
+            flex-direction: column-reverse; */
+            
+
+            /* flex-wrap: wrap; (Default value of flex-direction is no-wrap) */
+            /* flex-wrap: wrap-reverse; */
+
+            /* This is a shorthand for flex-direction: and flex-wrap: ;; */
+            /* flex-flow: row-reverse wrap; */ 
+
+            /* justify-content will justify the content in horizontal direction */
+            /* justify-content: center; */
+            /* justify-content: space-between; */
+            /* justify-content: space-evenly; */
+            /* justify-content: space-around; */
+
+            /* justify-content will justify the content in vertical direction */
+            /* align-items: center; */
+            /* align-items: flex-end; */
+            /* align-items: flex-start; */
+            /* align-items: stretch; */ 
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            border: 2px solid green;
+            margin: 10px;
+            padding: 3px;
+        }
+
+        #item-1{
+            /* Flex properties for a flex item */
+            /* Higher the order, later it shows up in the container */
+            /* order: 2; */
+
+            /* flex-grow: 2;
+            flex-shrink: 2; */
+
+        }
+        #item-2{
+            /* flex-grow: 3;
+            flex-shrink: 3 ; */
+            flex-basis: 160px;
+            /* when flex-direction is set to row flex-basis: will control width */
+            /* when flex-direction is set to column flex-basis: will control height */
+        }
+        #item-3{
+            /* flex: 2 2 230px; */
+            align-self: flex-start;
+            align-self: flex-end;
+            align-self: center;
+
+            }
+
+    </style>
+</head>
+<body>
+    <h1>This is Flexbox Tutorial</h1>
+    <div class="container">
+        <div class="item" id="item-1">First Box</div>
+        <div class="item" id="item-2">Second Box</div>
+        <div class="item" id="item-3">Third Box</div>
+        <!-- <div class="item" id="item-4">Fourth Box</div>
+        <div class="item" id="item-5">Fifth Box</div>
+        <div class="item" id="item-6">Sixth Box</div> -->
+    </div>
+</body>
+</html>
+
+# TRANSITION AND TRANSFORMATION
+
+transform: scaleX(0);
+    transition: .5s;
+
+.nav a:hover::after {
+    transform: scaleX(1);
+}
+
+THESE TWO WILL BE USED FOR THE CREATIVITY
+
+###########################################################################################
+JAVASCRIPT CODE WITH HARRY
+
+ALWAYS USE <SCRIPT> TAG AFTER THE DOM (DIV TAG)
+
+console.log('hello world');
+
+# VARIABLES
+
+<script>
+var a = 40;
+var b = 20;
+var c = "koko";
+console.log(a);
+</script>
+
+# OPERATORS
+1) UNARY OPERATOR It has single operand (x = -x)
+c = -c;
+console.log(c);
+
+2) BINARY OPERATOR It has double operand (x = x+6)
+c = c+6;
+console.log(c);
+
+var num1 = 70;
+var num2 = 10;
+
+//arithematic operators in action in javascript
+console.log("the value of num1 + num2 is "+(num1 + num2));
+console.log("the value of num1 + num2 is "+(num1 - num2));
+console.log("the value of num1 + num2 is "+(num1 * num2));
+console.log("the value of num1 + num2 is "+(num1 + num2));
+
+# STRING IN JAVASCRIPT
+
+<script>
+var string = 'koko';
+var name = 'kovidh';
+var temp = '${name} is a nice persion';
+
+var len = name.length;
+console.log("the length of string is &{len}");
+</script>
+
+IN ORDER TO INSERT THE GIVEN STRING IN THE HTML USING JAVASCRIPT IS
+
+document.getElemntById('content').innerHTML = '<h3> this is he heading </h3>.
+content is the div class where you would like to insert the heading while
+' ' is the written content.
+
+# STRING FUNCTIONS IN WORKING AS GIVEN BELOW.
+
+<script>
+
+var str = "this is a string";
+console.log(str);
+var position = str.indexof('is');
+console.log(position);
+// SUBSTRING FROM A STRING
+
+var substr = str.slice(1,5);
+var substr = str.substring(1,5);
+// slice can even take negative values of the index
+// substring cannot take negative value of the index
+console.log(substr);
+var replaced = str.replace('string', 'kiovidhraj');
+console.log(str);
+console.log(replaced);
+
+var newString = str.concat('New String');
+console.log(newString);
+
+// trim() is used to cut out all the white spaces from the start and from the end.
+
+console.log(str.trim());
+</script>
+
+# SCOPE, IF-ELSE CONDITIONS AND SWITCH CASE
+
+<nav>
+<ul>
+<li> I1 </li>
+<li> I2 </li>
+<li> I3 </li>
+<li> I4 </li>
+</ul>
+</nav>
+<script>
+var string1 = "this is a string1";
+var string1 = "this is a string2";
+console.log(string1);
+let a = "u";
+{
+let a = "u8";
+console.log(a);
+
+}// this is not globale instead it is limited to this function only
+// LET is used when you would like to change string
+// While CONST is used when you would like to keep it safe and simple.  
+console.log(a);
+
+cosnt a = "this cannot be changed".
+a = "this one won't change"
+console.log(a);
+
+let age = 90;
+
+if(age>18){
+console.log("you can drink beer");
+}
+else{
+console.log("you cannot drink beer");
+}
+
+switch(x){
+case :
+cosnole.log();
+break;
+}
+</script>
+
+# ARRAYS AND OBJECTS
+<script>
+
+let myVar1 = 90;
+let myVar2 = "string";
+let myVar3 = undefined;
+let myVar4 = null;
+
+let employee = {
+name: "harry",
+salary: 100,
+channel1: "kingofages",
+channel2: null;
+}
+console.log(employee);
+
+let names = [1,2,3,"kovidhraj",undefined]; // perfect ARRAYS.
+let names = new Array(1,2,3, "kovidhraj", undefined);// perfect OBJECT.
+console.log(names);
+
+</script>
+
+# FUNCTIONS
+
+let name = "koko";
+let name2 = "kovidh";
+let name3 = "kanishk";
+console.log(name + "is a good guy");
+console.log(name2 + "is a good guy");
+console.log(name3 + "is a good guy");
+
+// THIS IS THE LONG TO DO THE WORK SO INSTEAD OF DOING IT THIS WAY WE CAN JUST USE
+FUNCTIONS
+
+function greet(name,greetText){
+console.log(name+ "is a good guy");
+console.log(greetText+" "+name);
+}
+
+let name = "koko";
+let name2 = "kovidh";
+let name3 = "kanishk";
+let greetText = "Good Morning";
+greet(name,greetText);
+greet(name2,greetText);
+greet(name3,greetText);
+
+# INTERACTION: ALERT,PROMPT AND CONFIRM.
+
+ALERT:
+<script>
+alert("this is a message");
+PROMPT:
+let name = prompt("what is your name?", Guest);
+console.log(name);
+CONFIRM:
+let deletepost = confirm("do you really want to delete this post?");
+
+if(deletepost){
+console.log("your post has been deleted successfully");
+}
+else{
+console.log("your post has not been deleted");
+}
+
+
+</script>
+
+# LOOPS: FOR ,WHILE ,DO WHILE
+
+<script>
+console.log("this is loop");
+let i = 0;
+for(i=0;i,6;i++){
+console.log(i);
+}
+
+let friends = ["koko","moshit","dsdds","sefijs"];
+for(let index = 0;index<friends.length;index++){
+console.log("hello friend,"+friends[index]);
+
+friends.forEach(f(element){
+console.log("hello friends," + element +"to mordern world")
+});
+
+for(element of friends){
+console.log("hello friends,"+ element"to the mordern world);
+}
+
+let employee = {
+name = "harry",
+salary = 2,
+DOB:090904;
+}
+for(key in employee){
+consol.log('the ${key} of employee is ${employee[key]}');
+}
+
+// WHILE LOOP IN JS
+ 
+let i=0;
+while(i,4){
+consloe.log('${i} is less than 4');
+i++;
+}
+
+</script>
+
+###########################################################################################
+
+# NAVIGATING THE DOM
+
+<div id="main" class = "conatainer">
+<ul id = "nav">
+<li> </li>
+<li> </li>
+<li> </li>
+<li> </li>
+</ul>
+</div>
+<script>
+let main = document.getElementbyId('main');
+console.log(main);
+
+let nav = document.getElementbyId('nav');
+console.log(nav);
+
+let containers = document.getElementByClassName('container');
+console.log(containers);
+
+let sel = document.querySelectorALL('#nav>li');
+console.log("Selector retruns ",sel);
+
+</script>
+############################################################################################
+# EVENTS IN JAVASCRIPT
+
+BROWSER EVENTS:
+CLICK
+CONTEXTMENU
+MOUSEOVER/MOUSEOUT
+MOUSEDOWN/MOUSEUP
+MOUSEMOVE
+
+<button id="btn" onclick="toggleHide()"></button>
+<script>
+function toggleHide(){
+let btn = document.getElementById('btn');
+let para = document.getElementById('para');
+para.style.display = '';
+
+</script>
+
+
+# SETINTERVAL AND SETTIMEOUT
+
+CLEARTIMEOUT: ALLOWS US TO RUN THE FUNCTION REPEATEDLY AFTER THE INTERVAL OF TIME
+
+SETTIMEOUT: ALLOWS US TO RUN THE FUNCTION REPEATEDLY AFTER THE INTERVAL OF TIME.
+
+function greet(name){
+console.log("hello good morning" +name);
+}
+timeOut = setTimeout(greet(), 5000);
+console.log(timeOut);
+
+</script>
+
+# JAVASCRIPT DATE AND TIME
+
+<script>
+console.log("This is date and time tutorial");
+let now = new Date(); // this is used for present time and date
+console.log(now);
+
+let dt = new Date(100);
+console.log(dt);// this is used for time and date for time when it started since then.
+
+let month = newDate.getMonth();
+console.log("this month is: ",month);
+
+let day = newDate.getDay();
+console.log("this day is: ",day);
+
+# ARROW FUNCTIONS IN JAVASCRIPT	
+
+<script>
+
+function greet(){
+console.log('Good Morning');
+}
+greet();
+
+// SAME CODE BUT USING ARROW FUNCTION
+
+// Arrow function
+     let greet =  ()=> {
+         console.log('Good morning');
+     }
+\\
+</script>
+
+# MATH OBJECT IN JAVASCRIPT
+
+<script>
+let Math;
+console.log(m);
+
+YOU CAN ALSO USE OTHER MATH FUNCTION
+SUCH ARE:
+
+Math.round() // for rounding off the number given in decimals.
+Math.sqrt()// for finding the square root of the number.
+Math.ceil()// goes for making round ups in the system
+Math.floor()// goes for making round downs in the system.
+Math.max();
+Math.min();
+
+
+
+//TRIGONOMETRY
+Math.sin(Math.PI);
+Math.cos(Math.PI);
+Math.tan(Math.PI);
+
+
+# JSON WORKING IN THE JAVASCRIPT
+
+
+<script>
+
+let jsonObj = {
+name: "harry",
+channel: "CHW",
+friend: "mohit k",
+food: "mummy's all dishes";
+}
+
+console.log(jsonObj);
+let myJsonStr = JSON.stringify(jsonObj);
+console.log(myJsonStr);
+
+
+</script>
+
+###########################################################################################
+
+
+# NODE.JS INTRODUCTION AND INSTALLATION..
+
+
+
+# MODULES
+
+
+const fs = require("fs");
+const text = fs.readFileSync("dele.txt","utf-8");
+console.log(text);
+
+text = text.replace("content","Kovidhraj");
+console.log("run this code");
+
+# BLOCKING AND NON BLOCKING EXECTUION
+
+synchronous or blocking
+// -Line by line execution
+
+// asynchronous or non-blocking
+// -Line by Line execution not guarenteed
+// - callback will fire
+
+
+# BLOCKING AND NON BLOCKING IN THE NODE JS IS NOT REQUIRED AND UNNECESSARY RIGHT NOW AND FOR OTHER WORK AS WELL/..
+
+# SERVING HTML USING NODEJS
+
+const http = require('http')
+const fs = require('fs')
+const fileContent = fs.readFileSync('mywork.html')  
+
+const server = http.createServer((req,res) =>{
+
+res.writeHead(200, {'content-type' :'text/html'});
+res.end(fileContent)
+
+})
+
+server.listen(80, '127.0.0.1', ()=>{
+console.log("Listening on port 80")
+})
+	
+
+# CREATING A CUSTOM BACKEND USING NODE JS
+
+const http = require('http');
+const fs = require('fs');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req,res) =>{
+
+res.statusCode = 200;
+res.setHeader('Content-type', 'text/plain');
+res.end('Hello World');
+
+});
+
+ finally, we will make the port to listen-
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
+
+Now to get the requests of different pages, we make their files and read them as follows-
+
+const home = fs.readFileSync('index.html')
+const about = fs.readFileSync('./about.html')
+const services = fs.readFileSync('./services.html')
+const contact = fs.readFileSync('./contact.html')
+
+
+We will now make 4 different files like index.html, about.html, services.html, and contact.html. In index.html file, we will some basic HTML and serve the following file back in index.js as follows-
+
+res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+res.end(home);
+
+Now if we want that these URLs should serve different files as we click on about us, contact, or services. But before that, we can write the basic HTML codes in all the other pages. Now, we can take the help of if-else as follows-
+
+ res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    if(url == '/'){
+        res.end(home);
+    }
+    else if(url == '/about'){
+        res.end(about);
+    }
+    else if(url == '/services'){
+        res.end(services);
+    }
+    else if(url == '/contact'){
+        res.end(contact);
+    }
+    else{
+        res.statusCode = 404;
+        res.end("<h1>404 not found</h1>");
+    }
+});
+
+
+
+FULL CODE OF THE VIDEO
+
+const http = require('http');
+const fs = require('fs');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+const home = fs.readFileSync('index.html')
+const about = fs.readFileSync('./about.html')
+const services = fs.readFileSync('./services.html')
+const contact = fs.readFileSync('./contact.html')
+
+const server = http.createServer((req, res)=>{
+    console.log(req.url);
+    url = req.url;
+
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    if(url == '/'){
+        res.end(home);
+    }
+    else if(url == '/about'){
+        res.end(about);
+    }
+    else if(url == '/services'){
+        res.end(services);
+    }
+    else if(url == '/contact'){
+        res.end(contact);
+    }
+    else{
+        res.statusCode = 404;
+        res.end("<h1>404 not found</h1>");
+    }
+});
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
+
+
+
+
+# CREATING A CUSTOM MODULES IN NODE JS
+
+
+We will start by making the module first and the code for it goes as follows-
+
+function average(arr){
+    let sum = 0;
+    arr.forEach(element => {
+        sum += element;
+    });
+    return sum/arr.length;
+}
+
+
+In the above example, we have created a simple average function that takes the value as arr and returns the average.
+
+Now to import this module, we have to write as follows in index.js-
+
+const mod = require("./mod");
+console.log(mod.name)
+
+module.exports = average;
+
+To get the average of any two numbers, we can pass the values as follows-
+
+const average = require("./mod");
+console.log(average([3,4])
+
+
+We can also create an object and make it as a module. For example, we can write as follows-
+
+module.exports = {
+     avg: average,
+     name: "Harry",
+     repo: "GitHub"
+ }
+
+
+We can call this module in index.js file as follows-
+
+const mod = require("./mod");
+console.log(mod.avg([3,4]))
+
+
+
+In the same way, we can export multiple objects and create our own modules with the help of NodeJs. However, there is another method to call the above object. If we write as follows in mod.js file-
+
+module.exports.name = "Harry";
+
+
+
+And call the object in the following way in index.js as follows-
+
+console.log(mod.name)
+
+
+// console.log(average([3,4]))
+// const average = require("./mod");
+const mod = require("./mod");
+console.log(mod.name) 
+// console.log(mod.avg([3,4]))
+console.log("This is index.js");
+
+
+console.log("This is module");
+
+function average(arr){
+    let sum = 0;
+    arr.forEach(element => {
+        sum += element;
+    });
+    return sum/arr.length;
+}
+
+// module.exports = {
+//     avg: average,
+//     name: "Harry",
+//     repo: "GitHub"
+// }
+
+module.exports.name = "Harry";
+
+
+
+#  THE NODE PACKAGE MANAGER USING NODEJS
+
+ 
+console.log("This is tutorial 69")
+
+To know the version of NPM and Node, we can write npm --version and node --version respectively on the terminal. 
+
+
+ we will make a new directory as tut69. Till now, we have only one file inside this directory i.e., tut69.js.
+ 
+But as soon as we write npm init on the terminal, it asks several questions like the package name, version, description, entry point, keyword, author, etc. 
+
+When we execute this, there is a new file called package.json inside the tut69 directory.
+
+
+{
+
+"name": "work1",
+"version":"1.0.0",
+"description": "This is the best package ever built by someone",
+"main":"work1",
+}
+
+
+NPM init has initialized this folder in terms of a node package. Now when we install any other dependency, it automatically gets added to this package. 
+
+For example, if we write npm install slugify, the package.json file will automatically get updated 
+
+
+In the same way, we can install or uninstall any of the packages from the directory. Besides all these things, we also get another folder called node.modules. 
+
+It is a folder containing all the modules related to our project. If by mistake this folder gets deleted, we can recover it back by again installing npm by writing npm install.
+
+If we want to install any specific version of the dependency, we can easily do that.
+
+ if want to install version 1.3.5 of slugify, we have to write as npm install slugify@1.3.5. As soon as write this, the version gets updated 
+ 
+
+
+Let us now see what dev dependencies are. There are times when we want to install the packages only for development purposes, not for production purposes. 
+
+In that case, dev dependencies are useful. The best example of this is nodemon. It gives us the server which automatically gets restart every time. 
+
+To install this, we have to write-
+
+{npm intall nodemon --save-dev}
+
+
+
+
+# Installing Express and Postman
+
+What is Postman?
+
+Postman is an app that is used to collect all the get and post requests through a custom URL sent by the user. It minimizes our work by not allowing us to write JavaScript in the Node application. We can also skip fetching all the APIs with the help of Postman.
+
+
+What is Express?
+
+Before understanding Express, make a new folder as express and write cd > express in the terminal to get inside the folder. Now we will call the NPM package by writing npm init. Inside the express folder, we will now make a new file as app.js to keep all the express files. To install express, we will write npm install express in the terminal window. 
+
+Express.js is a web application framework for Node.js, released as free and open-source software. It is designed for building web applications and APIs. Simply, it creates custom backends automatically for us as per our requirements. For example, in the last few lectures, we learned to create custom backends for different pages like about us, contact us and services. But express creates the servers for these pages automatically for us.
+
+Moreover, it handles all the routings for us and also simplifies all the process in the web development for us. Some of the big multinational companies like Uber, Myntra, and IBM use Express for their web applications. Therefore, it is probably one of the best open-source web application frameworks.
+
+
+# WRITING OUR FIRST EXPRESS APP
+
+const express = require("express");
+const app = express();
+const port = 80;
+
+app.get("/", (req, res)=>{ 
+    res.send("This is homepage of my first express app with Harry");
+});
+
+app.listen(port, ()=>{
+    console.log(`The application started successfully on port ${port}`);
+});
+
+We can also test the app in the Postman app by sending a get request on the local server. The benefit of using port 80 is, the server works on the local server.
+
+
+app.get("/about", (req, res)=>{
+    res.send("This is about page of my first express app with Harry");
+});
+
+If we now send the get request from the Postman app, we get the output as follows-
+
+
+In the same way, we can create the post request of the same endpoint as follows-
+
+app.post("/about", (req, res)=>{
+    res.send("This is a post request about page of my first express app with Harry");
+});
+
+
+And now if we run by selecting the post request through Postman, we get the output
+
+
+Simply get request is used to handle all the get requests of all the endpoints and post request is used to manage all the post requests of all the endpoints. 
+
+
+Suppose, if we want to send the json and status code together, so we can write as follows-
+
+app.get("/", (req, res)=>{ 
+    res.status(200).send("This is homepage of my first express app with Harry");
+});
+
+We can also send the status as “404”
+
+app.get("/this", (req, res)=>{
+    res.status(404).send("This page is not found on my website cwh");
+});
+
+
+# FULL CODE OF THE EXPRESS APP
+
+const express = require("express");
+const app = express();
+const port = 80;
+ 
+app.get("/", (req, res)=>{ 
+    res.status(200).send("This is homepage of my first express app with Harry");
+});
+
+app.get("/about", (req, res)=>{
+    res.send("This is about page of my first express app with Harry");
+});
+
+app.post("/about", (req, res)=>{
+    res.send("This is a post request about page of my first express app with Harry");
+});
+app.get("/this", (req, res)=>{
+    res.status(404).send("This page is not found on my website cwh");
+});
+
+app.listen(port, ()=>{
+    console.log(`The application started successfully on port ${port}`);
+});
+
+
+
+#.............................

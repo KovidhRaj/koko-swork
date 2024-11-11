@@ -1,0 +1,235 @@
+### C++ ###	
+
+1) starting of the c++
+
+#include <iostream>
+using namespace std;
+
+int main(){
+
+cout<<"hello world";
+cout<<"Next line"<<endl;
+
+retrun 0;
+
+}
+
+2) Variables
+
+THEY ARE CASE SENSITIVE IN C++
+
+int a,b,c;
+
+short _sa = 9;
+
+cout<<sa;
+
+int marksInMaths = 90;
+cout<<marksInMaths;
+cout<<"the marks of a student in maths is"<<marksInMaths<<endl;	
+
+short a;
+int b;
+long c;
+long long d;
+float score = 49.50;
+cout<<"the score is = "<<score<<endl; 
+
+3) taking user input:
+
+int a,b;
+cout<<"enter first number ";
+cin>>a;
+cout<<"enter second number ";
+cin>>b;
+
+if(a>b){
+cout<<"sum operation will take place = "<<a + b<<endl;
+}
+else{
+cout<<"subtraction process will take place = "<<b - a;
+}
+
+3) IF ELSE CONDITION
+
+#include <iostream>
+using namespace std;
+
+int main(){
+int age;
+
+if(age>150){
+cout<<"Invalid age";
+}
+else if(age>=18){
+cout<<"you can vote";
+}
+else{
+cout<<"you cannot vote";
+
+}
+
+
+return 0;
+}
+
+4) Switch Case
+
+int age;
+    // cout << "Enter your age" << endl;
+    // cin >> age;
+
+    // switch (age)
+    // {
+    // case 12:
+    //     cout << "You are 12 years old"<<endl;
+    //     break;
+    // case 18:
+    //     cout << "You are 18 years old"<<endl;
+    //     break;
+
+    // default:
+    //     cout << "You are neither 12 nor 18 years old";
+
+    // }
+
+5) LOOPS(While and Do WHile loops)
+
+int index = 0;
+while(index<34){
+cout<<"We are at index number "<<index<<endl;
+index = index+1;
+}
+
+# DO WHILE LOOps
+
+do{
+cout<<"we are at index number "<<index<<endl;
+index = index + 1;
+}
+while(index<30);
+
+## FOR LOOPs ##
+
+for(int i=0;i<20;i++){
+cout<<"the counting starts "<<i<<endl;
+}
+
+6) typecasting function
+
+int a,b;
+cout<<"enter first number"<<endl;
+cin>>a;
+ cout<<"enter second number"<<endl;
+cin>>b;
+
+cout<<"the function returned "<<add(a,b);
+
+6) Arrays
+
+
+int arr[] = {1,3,6};
+// cout<<arr[1];
+int marks[6];
+
+for(int i=0;i<6;i++)
+{
+cout<<"enter the marks of "<<i<<"th student"<<endl;
+cin>>marks[i];
+}
+for(int i=0;i<6;i++){
+cout<<"Marks of "<<i<<"th student is "<<marks[i]<<endl;
+
+}
+
+## 2D ARRAYS ##
+
+
+ int arr2d[2][3] = {  {1,2,3},
+    //                      {4,5,6}};
+
+    // for (int i = 0; i < 2; i++)
+    // {
+    //     for (int j = 0; j < 3; j++)
+    //     {
+    //         cout<<"The value at "<<i<<","<<j<<" is "<<arr2d[i][j]<<endl;
+    //     }
+
+    // }
+
+7) Typecasting 2:
+
+int a =343;
+    // float b = 87.94;
+    // cout<<(float) a/34<<endl;
+
+    // cout<<(int) b;
+
+8) #include <string>
+
+string name = "harry";
+    // cout<<"The name is "<<name<<endl;
+    // cout<<"The length of name is "<<name.length()<<endl;
+    // cout<<"The name is "<<name.substr(1,155)<<endl;
+    // cout<<"The name is "<<name.substr(2,3);
+
+9) Pointers
+
+float a = 34.34;
+float *ptra;
+ptra = &a;
+cout<<"the value of a is "<<a<<endl;
+cout<<"the value of a is "<<*ptra<<endl;
+cout<<"the address of a is "<<&a<<endl;
+cout<<"the address of a is "<<ptra<<endl;
+
+10) OBJECT ORIENTED PROGRAMMING
+
+i) Class, Construct and Inheritence
+
+
+class Employee
+{
+public:
+    string name;
+    int salary;
+
+    Employee(string n, int s, int sp)
+    {
+        this->name = n;
+        this->salary = s;
+        this->secretPassword = sp;
+    }
+
+    void printDetails()
+    {
+        cout << "The name of our first employee is " << this->name << " and his salary is " << this->salary << " Dollars" << endl;
+    }
+
+    void getSecretPassword()
+    {
+        cout<<"The secret password of employee is "<<this->secretPassword;
+    }
+
+private:
+    int secretPassword;
+};
+
+
+class Programmer : public Employee
+{
+    public:
+        int errors;
+        
+};
+
+Employee har("Harry constructor", 344, 324432);
+    // har.name = "harry";
+    // har.salary = 100;
+    har.printDetails();
+    har.getSecretPassword();
+    // cout<<har.secretPassword;
+    // cout<<"The name of our first employee is "<< har.name << " and his salary is "<<har.salary<<" Dollars"<<endl;
+
+
+

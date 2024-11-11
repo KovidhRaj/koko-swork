@@ -1,0 +1,104 @@
+# NOTES FOR HTML FROM SCRATCH STARTING AT 10 pm.
+
+1) use of comments
+
+(<!-- msomfoeksmfkosm -->)**
+
+use of (<!-- -->) provides as a common tags.
+
+2) by using <link rel="stylesheet" href="koko.css"> you can include external CSS.
+it is just a templet.
+
+3) heading and paragaraphs........
+""<br>"" is a self closing tag which shows or gives you a new line 
+""<b>"" is a bold tag which gives a bold font to the words or sentences...
+
+
+4) images and anchor tags..
+<a href="https://  "> </a> is an anchor tag and which is used to give preference to the specified link only.
+ and use of (target="_blank") will provide you a new tab related to the link.
+
+you can change the size of the image by giving it width="500" and height="800"..etc
+
+
+5) lists and table
+this is an unordered list using the tag of <ul>.
+<ul>
+<li>
+</li>
+
+this is an ordered list using the tag with <ol>.
+
+<ol>
+<li>
+</li>
+
+NOW LET US TALK ABOUT TABLES
+
+<table> you can also add rowspan and columnspan to give a proper time table portion
+<tr>
+<th>-------this gives a bolder heading to headline.
+
+<th> NAme </th>
+<th> Employee ID </th>
+
+</tr>
+
+<tr>
+<td>--------this is used to give out sub headline thin bolder lines.
+<td> dadadad </td>
+<td> dadadad </td>
+<td> dadadad </td>
+<td> dadadad </td>
+<td> dadadad </td>
+
+</table>
+
+
+6) FORMS AND INPUT TAGS
+
+<form action ="backend.php"> </form> with this you can create a backend for your HTML form
+and also by using <fieldset> and <legend> you can make a box for your form and you also need to 
+use <table> tags just to make it in proper format and also us other input tags
+most basic tag is <input type="text" value="enter name">
+
+<br> using this tag can give you your data type on the next line
+but use <br> tag only after you've used <div> tag (most important for forms).
+
+for submitting your form use submit button by <input type="submit" value="submit">
+<input type="date" name="myDate"> name is used for recognising the data type at your form's backend.
+
+ input can also include number,radio,checkbox.
+
+<lable for="M"> can also be used as per your convenience.
+ the most important tag for a form is <select name="name"> tag and <option value="cars"> tags all the time. 
+
+7) INLINE AND BLOCK ELEMENTS
+
+<span> is an inlinr element
+
+8) IDS AND CLASSES
+<div id="c" class="redbg">
+so in this we can include ID to only one element as it is a unique format and specified for only one element
+secondly we can can call class as an element which be for large scale or small scale.\
+
+ctrl+/ will give you an automated comment tag.
+
+9) ENTITIES
+ nbps; is actually waste of time but can be used to give spaces between texts as per the situation.
+if you ever want to print <p> in the html website then you can use (&ltp&gt)* well might not be important but can be used as per your
+convenience.
+ if you need more entities you can go to html entities reference.
+
+10) SEMANTIC TAGS in html
+
+<Details> and <summary> are the tags that comes under the semantic tags in html.
+
+
+
+
+
+
+
+
+

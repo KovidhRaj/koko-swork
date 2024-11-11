@@ -1,0 +1,2769 @@
+## CLASSES,PUBLIC AND PRIVATE ACCESS ##
+
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+private:
+ int a,b,c;
+public:
+int d,e;
+void setData(int a1,int b1,int c1);
+void getData(){
+cout<<"the value of a is "<<a<<endl;
+cout<<"the value of b is "<<b<<endl;
+cout<<"the value of c is "<<c<<endl;
+cout<<"the value of d is "<<d<<endl;
+cout<<"the value of e is "<<e<<endl;
+}
+};
+
+void Employee::setData(int a1,int b1,int c1){
+a = a1;
+b = b1;
+c = c1;
+
+}
+
+int main(){
+
+Employee kovidh;
+kovidh.d = 34;
+kovidh.e = 90;
+kovidh.setData(1,3,4);
+kovidh.getData();
+return 0;
+
+}
+
+2) OOPS recape and nesting of Members Function in C++
+
+Object-Oriented programming Recap
+
+Stroustrup initially named C++ language as C with classes because C++ language was almost the same as C language but they added a new concept of classes in it.
+Classes are the extension of structures in C language.
+Structures had limitations such as; members are public and no methods.
+Classes have some additional futures than structures such as; classes that can have methods and properties.
+Classes have a feature to make class members as public and private.
+In C++ objects can be declared along with class deceleration as shown in Code Snippet 1.
+
+class Employee{
+            // Class definition
+} harry, rohan, lovish;
+
+
+
+Declaring Objects with Class Declaration
+
+
+class binary
+{
+private:
+    string s;
+    void chk_bin(void);
+
+public:
+    void read(void);
+    void ones_compliment(void);
+    void display(void);
+};
+
+
+ Binary Class
+
+void binary::read(void)
+{
+    cout << "Enter a binary number" << endl;
+    cin >> s;
+}
+
+
+Read Function
+
+
+i
+void binary::chk_bin(void)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.at(i) != '0' && s.at(i) != '1')
+        {
+            cout << "Incorrect binary format" << endl;
+            exit(0);
+        }
+    }
+}
+
+Check Binary Function
+
+void binary::ones_compliment(void)
+{
+    chk_bin();
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.at(i) == '0')
+        {
+            s.at(i) = '1';
+        }
+       else
+        {
+            s.at(i) = '0';
+        }
+    }
+}
+
+
+ One's Compliment
+
+
+void binary::display(void)
+{
+    cout<<"Displaying your binary number"<<endl;
+    for (int i = 0; i < s.length(); i++)
+    {
+        cout << s.at(i);
+    }
+    cout<<endl;
+}
+
+
+Display Function
+
+
+int main()
+{
+    binary b;
+    b.read();
+    // b.chk_bin();
+    b.display();
+    b.ones_compliment();
+    b.display();
+
+    return 0;
+}
+
+
+// OOPs - Classes and objects
+
+// C++ --> initially called --> C with classes by stroustroup
+// class --> extension of structures (in C)
+// structures had limitations
+//      - members are public
+//      - No methods
+// classes --> structures + more
+// classes --> can have methods and properties
+// classes --> can make few members as private & few as public
+// structures in C++ are typedefed
+// you can declare objects along with the class declarion like this:
+/* class Employee{
+            // Class definition
+        } harry, rohan, lovish; */
+// harry.salary = 8 makes no sense if salary is private
+
+// Nesting of member functions
+
+#### FULL CODE ####
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class binary
+{
+private:
+    string s;
+    void chk_bin(void);
+
+public:
+    void read(void);
+    void ones_compliment(void);
+    void display(void);
+};
+
+2) binary class
+
+void binary::read(void)
+{
+    cout << "Enter a binary number" << endl;
+    cin >> s;
+}
+
+3)
+void binary::chk_bin(void)
+{
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.at(i) != '0' && s.at(i) != '1')
+        {
+            cout << "Incorrect binary format" << endl;
+            exit(0);
+        }
+    }
+}
+
+
+void binary::ones_compliment(void)
+{
+    chk_bin();
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s.at(i) == '0')
+        {
+            s.at(i) = '1';
+        }
+       else
+        {
+            s.at(i) = '0';
+        }
+    }
+}
+
+
+void binary::display(void)
+{
+    cout<<"Displaying your binary number"<<endl;
+    for (int i = 0; i < s.length(); i++)
+    {
+        cout << s.at(i);
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    binary b;
+    b.read();
+    // b.chk_bin();
+    b.display();
+    b.ones_compliment();
+    b.display();
+
+    return 0;
+}
+
+3) ### C++ Objects Memory Allocation & using Arrays in Classes ###
+
+
+
+#include <iostream>
+using namespace std;
+
+
+1: Shop Class
+
+class Shop
+{
+    int itemId[100];
+    int itemPrice[100];
+    int counter;
+
+public:
+    void initCounter(void) { counter = 0; }
+    void setPrice(void);
+    void displayPrice(void);
+};
+
+2: Set Price Function
+
+
+void Shop ::setPrice(void)
+{
+    cout << "Enter Id of your item no " << counter + 1 << endl;
+    cin >> itemId[counter];
+    cout << "Enter Price of your item" << endl;
+    cin >> itemPrice[counter];
+    counter++;
+}
+
+
+3: Display Price Function
+
+void Shop ::displayPrice(void)
+{
+    for (int i = 0; i < counter; i++)
+    {
+        cout << "The Price of item with Id " << itemId[i] << " is " << itemPrice[i] << endl;
+    }
+}
+
+
+
+int main()
+{
+    Shop dukaan;
+    dukaan.initCounter();
+    dukaan.setPrice();
+    dukaan.setPrice();
+    dukaan.setPrice();
+    dukaan.displayPrice();
+    return 0;
+}
+
+
+4) Static Data Members & Methods in C++ OOPS
+
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+    int id;
+    static int count;
+
+public:
+    void setData(void)
+    {
+        cout << "Enter the id" << endl;
+        cin >> id;
+        count++;
+    }
+    void getData(void)
+    {
+        cout << "The id of this employee is " << id << " and this is employee number " << count << endl;
+    }
+
+    static void getCount(void){
+        // cout<<id; // throws an error
+        cout<<"The value of count is "<<count<<endl;
+    }
+};
+
+// Count is the static data member of class Employee
+int Employee::count; // Default value is 0
+
+int main()
+{
+    Employee harry, rohan, lovish;
+    // harry.id = 1;
+    // harry.count=1; // cannot do this as id and count are private
+
+    harry.setData();
+    harry.getData();
+    Employee::getCount();
+
+    rohan.setData();
+    rohan.getData();
+    Employee::getCount();
+
+    lovish.setData();
+    lovish.getData();
+    Employee::getCount();
+
+    return 0;
+}
+
+Array of Objects & Passing Objects as Function Arguments in C++
+
+CODE ONE :
+
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+    int id;
+    int salary;
+
+public:
+    void setId(void)
+    {
+        salary = 122;
+        cout << "Enter the id of employee" << endl;
+        cin >> id;
+    }
+
+    void getId(void)
+    {
+        cout << "The id of this employee is " << id << endl;
+    }
+};
+
+int main()
+{
+    // Employee harry, rohan, lovish, shruti;
+    // harry.setId();
+    // harry.getId();
+    Employee fb[4];
+    for (int i = 0; i < 4; i++)
+    {
+        fb[i].setId();
+        fb[i].getId();
+    }
+
+    return 0;
+}
+
+
+CODE TWO:
+
+#include<iostream>
+using namespace std;
+
+class complex{
+    int a;
+    int b;
+
+    public: 
+        void setData(int v1, int v2){
+            a = v1;
+            b = v2;
+        }
+
+        void setDataBySum(complex o1, complex o2){
+            a = o1.a + o2.a;
+            b = o1.b + o2.b;
+        }
+
+        void printNumber(){
+            cout<<"Your complex number is "<<a<<" + "<<b<<"i"<<endl;
+        }
+};
+
+int main(){
+    complex c1, c2, c3;
+    c1.setData(1, 2);
+    c1.printNumber();
+
+    c2.setData(3, 4);
+    c2.printNumber();
+
+    c3.setDataBySum(c1, c2);
+    c3.printNumber();
+    return 0;
+}
+
+
+
+Friend Functions in C++
+
+
+#include<iostream>
+using namespace std;
+
+// 1 + 4i
+// 5 + 8i
+// -------
+// 6 + 12i 
+#include <iostream>
+using namespace std;
+
+class Complex {
+    int a, b;
+    friend Complex sumComplex(Complex o1, Complex o2); // Corrected class name
+
+public:
+    void setNumber(int n1, int n2) {
+        a = n1;
+        b = n2;
+    }
+
+    void printNumber() { // Removed incorrect parameter 'members'
+        cout << "Your number is " << a << " + " << b << "i" << endl;
+    }
+};
+
+Complex sumComplex(Complex o1, Complex o2) {
+    Complex o3;
+    o3.setNumber((o1.a + o2.a), (o1.b + o2.b));
+    return o3;
+}
+
+int main() {
+    Complex c1, c2, c3, sum; // Declared 'sum' as a 'Complex' object
+    c1.setNumber(1, 4);
+    c1.printNumber();
+
+    c2.setNumber(5, 8); // Corrected typo 'setNumebr' to 'setNumber'
+    c2.printNumber();
+
+    c3.setNumber(9, 2);
+    c3.printNumber();
+
+    sum = sumComplex(c1, c2);
+    sum.printNumber();
+
+    return 0;
+}
+/* Properties of friend functions
+1. Not in the scope of class
+2. since it is not in the scope of the class, it cannot be called from the object of that class. c1.sumComplex() == Invalid
+3. Can be invoked without the help of any object
+4. Usually contans the objects as arguments
+5. Can be declared inside public or private section of the class
+6. It cannot access the members directly by their names and need object_name.member_name to access any member.
+
+*/
+
+### Friend Classes & Member Friend Functions in C++ ###
+
+#include <iostream>
+using namespace std;
+
+class Complex;  // Forward declaration
+
+class Calculator {
+public:
+    int sumRealComplex(Complex, Complex);
+    int sumCompComplex(Complex, Complex);
+};
+
+class Complex {
+    int a, b;
+
+    // Declare Calculator's methods as friends
+    friend int Calculator::sumRealComplex(Complex, Complex);
+    friend int Calculator::sumCompComplex(Complex, Complex);
+
+public:
+    void setNumber(int n1, int n2) {
+        a = n1;
+        b = n2;
+    }
+
+    void printNumber() {
+        cout << "Your number is " << a << " + " << b << "i" << endl;
+    }
+};
+
+int Calculator::sumRealComplex(Complex o1, Complex o2) {
+    return (o1.a + o2.a);
+}
+
+int Calculator::sumCompComplex(Complex o1, Complex o2) {
+    return (o1.b + o2.b);
+}
+
+int main() {
+    Complex o1, o2;
+    o1.setNumber(2, 6);
+    o2.setNumber(5, 9);
+
+    Calculator calc;
+    int res = calc.sumRealComplex(o1, o2);
+    cout << "The sum of real part of o1 and o2 is " << res << endl;
+
+    int resc = calc.sumCompComplex(o1, o2);
+    cout << "The sum of complex part of o1 and o2 is " << resc << endl;
+
+    return 0;
+}
+
+
+#### MORE EXAMPLES OF FRIEND FUNCTION ####
+
+1) EXAMPLE ONE:
+
+class Y;
+
+class X{
+    int data;
+    public:
+        void setValue(int value){
+            data = value;
+        }
+    friend void add(X, Y);    
+};
+
+class Y{
+    int num;
+    public:
+        void setValue(int value){
+            num = value;
+        }
+    friend void add(X, Y);    
+
+};
+
+void add(X o1, Y o2){
+    cout<<"Summing data of X and Y objects gives me "<< o1.data + o2.num;
+}
+
+
+int main(){
+    X a1;
+    a1.setValue(3);
+
+    Y b1;
+    b1.setValue(15);
+
+    add(a1, b1);
+    return 0;
+}
+
+2) EXAMPLE TWO: 
+
+class c2;
+
+class c1{
+    int val1;
+    friend void exchange(c1 & , c2 &);
+    public:
+        void indata(int a){
+            val1 = a;
+        }
+
+        void display(void){
+            cout<< val1 <<endl;
+        }
+};
+
+class c2{
+    int val2;
+    friend void exchange(c1 &, c2 &);
+    public:
+        void indata(int a){
+            val2 = a;
+        }
+
+        void display(void){
+            cout<< val2 <<endl;
+        }
+};
+
+void exchange(c1 &x, c2 &y){
+    int tmp = x.val1;
+    x.val1 = y.val2;
+    y.val2 = tmp;
+}
+
+int main(){
+    c1 oc1;
+    c2 oc2;
+
+    oc1.indata(34);
+    oc2.indata(67);
+    exchange(oc1, oc2);
+
+    cout<<"The value of c1 after exchanging becomes: ";
+    oc1.display();
+    cout<<"The value of c2 after exchanging becomes: ";
+    oc2.display();
+    
+    return 0;
+}
+
+### CONSTRUCTORS ###
+
+#include <iostream>
+using namespace std;
+
+class Complex
+{
+    int a, b;
+
+public:
+    // Creating a Constructor
+    // Constructor is a special member function with the same name as of the class.
+    //It is used to initialize the objects of its class
+    //It is automatically invoked whenever an object is created
+
+    Complex(void); // Constructor declaration
+
+    void printNumber()
+    {
+        cout << "Your number is " << a << " + " << b << "i" << endl;
+    }
+};
+
+Complex ::Complex(void) // ----> This is a default constructor as it takes no parameters
+{
+    a = 10;
+    b = 0;
+    // cout<<"Hello world";
+}
+
+int main()
+{
+    Complex c1, c2, c3;
+    c1.printNumber();
+    c2.printNumber();
+    c3.printNumber();
+
+    return 0;
+}
+
+
+
+#### parameterized and default constructor ####
+
+
+#include<iostream>
+using namespace std;
+
+
+class Complex
+{
+    int a, b;
+
+public:
+    Complex(int, int); // Constructor declaration
+
+    void printNumber()
+    {
+        cout << "Your number is " << a << " + " << b << "i" << endl;
+    }
+};
+
+Complex ::Complex(int x, int y) // ----> This is a parameterized constructor as it takes 2 parameters
+{
+    a = x;
+    b = y;
+    // cout<<"Hello world";
+}
+int main(){
+    // Implicit call
+    Complex a(4, 6);
+    a.printNumber();
+
+    // Explicit call
+    Complex b = Complex(5, 7);
+    b.printNumber();
+
+    return 0;
+}
+
+Constructor Overloading
+
+#include <iostream>
+using namespace std;
+
+class Complex
+{
+    int a, b;
+
+public:
+    Complex(){
+        a = 0;
+        b =0;
+    }
+
+    Complex(int x, int y)
+    {
+        a = x;
+        b = y;
+    }
+
+    Complex(int x){
+        a = x;
+        b = 0;
+    }
+
+  
+
+    void printNumber()
+    {
+        cout << "Your number is " << a << " + " << b << "i" << endl;
+    }
+};
+
+int main()
+{
+    Complex c1(4, 6);
+    c1.printNumber();
+
+    Complex c2(5);
+    c2.printNumber();
+
+    Complex c3;
+    c3.printNumber();
+    return 0;
+}
+
+#### Constructors with Default Arguments ####
+
+** Code Snippet 1: Dynamic Initialization of Objects using Constructor Example
+
+#include<iostream>
+using namespace std;
+
+class Simple{
+    int data1;
+    int data2;
+    int data3;
+
+    public:
+        Simple(int a, int b=9, int c=8){
+            data1 = a;
+            data2 = b;
+            data3 = c;
+        }
+
+        void printData();
+
+};
+
+void Simple :: printData(){
+    cout<<"The value of data1, data2 and data3 is "<<data1<<", "<< data2<<" and "<< data3<<endl;
+}
+
+int main(){
+    Simple s(12, 13);
+    s.printData();
+    return 0;
+}
+
+#### Dynamic Initialization of Objects Using Constructors ####
+
+#include<iostream>
+using namespace std;
+
+
+class BankDeposit{
+    int principal;
+    int years;
+    float interestRate;
+    float returnValue;
+
+    public:
+        BankDeposit(){}
+        BankDeposit(int p, int y, float r); // r can be a value like 0.04
+        BankDeposit(int p, int y, int r); // r can be a value like 14
+        void show();
+};
+
+
+** Code Snippet 2: Definition of Constructors and Function
+
+BankDeposit :: BankDeposit(int p, int y, float r)
+{
+    principal = p;
+    years = y;
+    interestRate = r;
+    returnValue = principal;
+    for (int i = 0; i < y; i++)
+    {
+        returnValue = returnValue * (1+interestRate);
+    }
+}
+
+BankDeposit :: BankDeposit(int p, int y, int r)
+{
+    principal = p;
+    years = y;
+    interestRate = float(r)/100;
+    returnValue = principal;
+    for (int i = 0; i < y; i++)
+    {
+        returnValue = returnValue * (1+interestRate);
+    }
+}
+
+void BankDeposit :: show(){
+    cout<<endl<<"Principal amount was "<<principal
+        << ". Return value after "<<years
+        << " years is "<<returnValue<<endl;
+}
+
+** Code Snippet 3: Main Program
+
+
+int main(){
+    BankDeposit bd1, bd2, bd3;
+    int p, y;
+    float r;
+    int R;
+    
+    
+    cout<<"Enter the value of p y and r"<<endl;
+    cin>>p>>y>>r;
+    bd1 = BankDeposit(p, y, r);
+    bd1.show();
+
+    cout<<"Enter the value of p y and R"<<endl;
+    cin>>p>>y>>R;
+    bd2 = BankDeposit(p, y, R);
+    bd2.show();
+    return 0;
+}
+
+
+### Copy Constructor in C++ ###
+
+** Code Snippet 1: Copy Constructor Example Program
+
+#include<iostream>
+using namespace std;
+
+
+class Number{
+    int a;
+    public:
+        Number(){
+            a = 0;
+        }
+
+        Number(int num){
+            a = num;
+        }
+        // When no copy constructor is found, compiler supplies its own copy constructor
+        Number(Number &obj){
+            cout<<"Copy constructor called!!!"<<endl;
+            a = obj.a;
+        }
+
+        void display(){
+            cout<<"The number for this object is "<< a <<endl;
+        }
+};
+
+
+** Code Snippet 2: Main Program
+
+int main(){
+    Number x, y, z(45), z2;
+    x.display();
+    y.display();
+    z.display();
+
+    Number z1(z); // Copy constructor invoked
+    z1.display();
+
+    z2 = z; // Copy constructor not called
+    z2.display();
+
+    Number z3 = z; // Copy constructor invoked
+    z3.display();
+
+    // z1 should exactly resemble z  or x or y
+
+    return 0;
+}
+
+## Destructor in C++ ##
+
+Code Snippet 1: Destructor Example Program
+
+#include<iostream>
+using namespace std;
+
+// Destructor never takes an argument nor does it return any value 
+int count=0;
+
+class num{
+    public:
+        num(){
+            count++;
+            cout<<"This is the time when constructor is called for object number"<<count<<endl;
+        }
+
+        ~num(){
+            cout<<"This is the time when my destructor is called for object number"<<count<<endl;
+            count--;
+        }
+};
+
+## Code Snippet 2: Main Program ##
+
+int main(){
+    cout<<"We are inside our main function"<<endl;
+    cout<<"Creating first object n1"<<endl;
+    num n1;
+    {
+        cout<<"Entering this block"<<endl;
+        cout<<"Creating two more objects"<<endl;
+        num n2, n3;
+        cout<<"Exiting this block"<<endl;
+    }
+    cout<<"Back to main"<<endl;
+    return 0;
+}
+
+
+## INHERITENCE AND ITS DIFFERENT TYPES ##
+
+
+Inheritance in C++ an Overview
+Reusability is a very important feature of OOPs
+In C++ we can reuse a class and add additional features to it
+Reusing classes saves time and money
+Reusing already tested and debugged classes will save a lot of effort of developing and debugging the same thing again
+What is Inheritance in C++?
+
+The concept of reusability in C++ is supported using inheritance
+We can reuse the properties of an existing class by inheriting it
+The existing class is called a base class
+The new class which is inherited from the base class is called a derived class
+Reusing classes saves time and money
+There are different types of inheritance in C++
+Forms of Inheritance in C++
+
+Single Inheritance
+Multiple Inheritance
+Hierarchical Inheritance
+Multilevel Inheritance
+Hybrid Inheritance
+Single Inheritance in C++
+
+Single inheritance is a type of inheritance in which a derived class is inherited with only one base class. For example, we have two classes “employee” and “programmer”. If the “programmer” class is inherited from the “employee” class which means that the “programmer” class can now implement the functionalities of the “employee” class.
+
+Multiple Inheritances in C++
+
+ Multiple inheritances are a type of inheritance in which one derived class is inherited with more than one base class. For example, we have three classes “employee”, “assistant” and “programmer”. If the “programmer” class is inherited from the “employee” and “assistant” class which means that the “programmer” class can now implement the functionalities of the “employee” and “assistant” class.
+
+Hierarchical Inheritance
+
+A hierarchical inheritance is a type of inheritance in which several derived classes are inherited from a single base class. For example, we have three classes “employee”, “manager” and “programmer”. If the “programmer” and “manager” classes are inherited from the “employee” class which means that the “programmer” and “manager” class can now implement the functionalities of the “employee” class.
+
+Multilevel Inheritance in C++
+
+Multilevel inheritance is a type of inheritance in which one derived class is inherited from another derived class. For example, we have three classes “animal”, “mammal” and “cow”. If the “mammal” class is inherited from the “animal” class and “cow” class is inherited from “mammal” which means that the “mammal” class can now implement the functionalities of “animal” and “cow” class can now implement the functionalities of “mammal” class.
+
+Hybrid Inheritance in C++
+
+Hybrid inheritance is a combination of multiple inheritance and multilevel inheritance. In hybrid inheritance, a class is derived from two classes as in multiple inheritances. However, one of the parent classes is not a base class. For example, we have four classes “animal”, “mammal”, “bird”, and “bat”. If “mammal”  and “bird” classes are inherited from the “animal” class and “bat” class is inherited from “mammal” and “bird” classes which means that “mammal” and “bird” classes can now implement the functionalities of “animal” class and “bat” class can now implement the functionalities of “mammal” and “bird” classes.
+
+## INHERITENCE SYNTAX AND VISIBILITY MODE IN C++ ##
+
+** Code Snippet 1: Derived Class syntax **
+
+ // Derived Class syntax
+class {{derived-class-name}} : {{visibility-mode}} {{base-class-name}}
+{
+    class members/methods/etc...
+}
+
+Note:
+
+Default visibility mode is private
+Public Visibility Mode: Public members of the base class becomes Public members of the derived class
+Private Visibility Mode: Public members of the base class become private members of the derived class
+Private members are never inherited
+
+** Code Snippet 2: Inheritance Example Program **
+
+#include <iostream>
+using namespace std;
+
+// Base Class
+class Employee
+{
+public:
+    int id;
+    float salary;
+    Employee(int inpId)
+    {
+        id = inpId;
+        salary = 34.0;
+    }
+    Employee() {}
+};
+
+// Creating a Programmer class derived from Employee Base class
+class Programmer : public Employee
+{
+public:
+    int languageCode;
+    Programmer(int inpId)
+    {
+        id = inpId;
+        languageCode = 9;
+    }
+    void getData(){
+        cout<<id<<endl;
+    }
+};
+
+** Code Snippet 3: Main Program **
+
+int main()
+{
+    Employee harry(1), rohan(2);
+    cout << harry.salary << endl;
+    cout << rohan.salary << endl;
+    Programmer skillF(10);
+    cout << skillF.languageCode<<endl;
+    cout << skillF.id<<endl;
+    skillF.getData();
+    return 0;
+}
+
+## SINGLE INHERITANCE DEEP DIVE ##
+
+#include <iostream>
+
+using namespace std;
+
+
+class Base
+{
+    int data1; // private by default and is not inheritable
+public:
+    int data2;
+    void setData();
+    int getData1();
+    int getData2();
+};
+
+void Base ::setData(void)
+{
+    data1 = 10;
+    data2 = 20;
+}
+
+int Base::getData1()
+{
+    return data1;
+}
+
+int Base::getData2()
+{
+    return data2;
+}
+
+class Derived : public Base
+{ 
+// Class is being derived publically
+    int data3;
+
+public:
+    void process();
+    void display();
+};
+
+void Derived ::process()
+{
+    data3 = data2 * getData1();
+}
+
+void Derived ::display()
+{
+    cout << "Value of data 1 is " << getData1() << endl;
+    cout << "Value of data 2 is " << data2 << endl;
+    cout << "Value of data 3 is " << data3 << endl;
+}
+int main()
+{
+    Derived der;
+    der.setData();
+    der.process();
+    der.display();
+
+    return 0;
+}
+
+## PROTECTED ACCESS MODIFER ##
+
+	Public Derivation      	Private Derivation    	Protected Derivation
+Private members           	Not Inherited              	Not Inherited              	Not Inherited              
+Protected members           	Protected                    	Private                         	Protected                    
+Public members           	Public	Private                         	Protected                    
+
+
+
+
+#include<iostream>
+using namespace std;
+
+class Base{
+    protected:
+        int a; 
+    private:
+        int b;
+
+};
+
+class Derived: protected Base // change this part and you will be able to modify the main function
+{
+
+   
+};
+
+int main(){
+    Base b;
+    Derived d;
+    // cout<<d.a; // Will not work since a is protected in both base as well as derived class
+    return 0;
+}
+
+
+## MULTIPLE INHERITANCE DEEP DIVE ##
+
+
+class Base1{
+protected:
+    int base1int;
+
+public:
+    void set_base1int(int a)
+    {
+        base1int = a;
+    }
+};
+
+class Base2{
+protected:
+    int base2int;
+
+public:
+    void set_base2int(int a)
+    {
+        base2int = a;
+    }
+};
+
+class Base3{
+protected:
+    int base3int;
+
+public:
+    void set_base3int(int a)
+    {
+        base3int = a;
+    }
+};
+class Derived : public Base1, public Base2, public Base3
+{
+    public: 
+        void show(){
+            cout << "The value of Base1 is " << base1int<<endl;
+            cout << "The value of Base2 is " << base2int<<endl;
+            cout << "The value of Base3 is " << base3int<<endl;
+            cout << "The sum of these values is " << base1int + base2int + base3int << endl;
+        }
+};
+int main()
+{
+    Derived harry;
+    harry.set_base1int(25);
+    harry.set_base2int(5);
+    harry.set_base3int(15);
+    harry.show();
+    
+    return 0;
+}
+
+## MULTILEVEL INHERITENCE ##
+
+#include <iostream>
+using namespace std;
+
+class Student
+{
+protected:
+    int roll_number;
+
+public:
+    void set_roll_number(int);
+    void get_roll_number(void);
+};
+
+void Student ::set_roll_number(int r)
+{
+    roll_number = r;
+}
+
+void Student ::get_roll_number()
+{
+    cout << "The roll number is " << roll_number << endl;
+}
+class Exam : public Student
+{
+protected:
+    float maths;
+    float physics;
+
+public:
+    void set_marks(float, float);
+    void get_marks(void);
+};
+
+void Exam ::set_marks(float m1, float m2)
+{
+    maths = m1;
+    physics = m2;
+}
+
+void Exam ::get_marks()
+{
+    cout << "The marks obtained in maths are: " << maths << endl;
+    cout << "The marks obtained in physics are: " << physics << endl;
+}
+class Result : public Exam
+{
+    float percentage;
+
+public:
+    void display_results()
+    {
+        get_roll_number();
+        get_marks();
+        cout << "Your result is " << (maths + physics) / 2 << "%" << endl;
+    }
+};
+
+int main()
+{
+    Result harry;
+    harry.set_roll_number(420);
+    harry.set_marks(94.0, 90.0);
+    harry.display_results();
+    return 0;
+}
+
+## AMBIGUITY RESOLUTION IN INHERITENCE ##
+
+//ambiguity codes
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class base1{
+public:
+void greet(){
+    cout<<"how are you?"<<endl;
+}
+};
+
+class base2{
+public:
+void greet(){
+    cout<<"kaise ho?"<<endl;
+}
+};
+
+class derived:public base1,public base2{
+    int a;
+    public:
+    void greet(){
+        base1::greet();
+    }
+};
+
+int main(){
+    base1 b1;
+    base2 b2;
+    b1.greet();
+    b2.greet();
+    derived d;
+    d.greet();
+
+    return 0;
+}
+
+## VIRTUAL BASE CLASS ##
+
+#include <iostream> 
+using namespace std; 
+class A { 
+public: 
+    void say() 
+    { 
+        cout << "Hello world"<<endl; 
+    } 
+}; 
+class B : public virtual A { 
+};   
+class C : public virtual A { 
+};   
+class D : public B, public C { 
+}; 
+
+## virtual base class example ##
+
+#include<iostream>
+using namespace std;
+
+class Student{
+    protected:
+        int roll_no;
+    public:
+        void set_number(int a){
+            roll_no = a;
+        }
+        void print_number(void){
+            cout<<"Your roll no is "<< roll_no<<endl;
+        }
+};
+
+class Test : public Student{
+    protected:
+        float maths, physics;
+        public:
+            void set_marks(float m1, float m2){
+                maths = m1;
+                physics = m2;
+            }
+
+            void print_marks(void){
+                cout << "You result is here: "<<endl
+                     << "Maths: "<< maths<<endl
+                     << "Physics: "<< physics<<endl;
+            }
+};
+
+class Sports: public Student{
+    protected:
+        float score;
+    public:
+        void set_score(float sc){
+            score = sc;
+        }
+
+        void print_score(void){
+            cout<<"Your PT score is "<<score<<endl;
+        }
+
+};
+
+class Result : public Test, public Sports{
+    private:
+        float total;
+    public:
+        void display(void){
+            total = maths + physics + score;
+            print_number();
+            print_marks();
+            print_score();
+            cout<< "Your total score is: "<<total<<endl;
+        }
+};
+
+int main(){
+    Result harry;
+    harry.set_number(4200);
+    harry.set_marks(78.9, 99.5);
+    harry.set_score(9);
+    harry.display();
+    return 0;
+}
+
+## FUNCTION OVERLOADING ##
+MEANING:
+Function overloading allows you to define multiple functions with the same name but different parameters (type or number).
+
+Key Points:
+1) The function name remains the same but the parameters differ.
+2) Overloading is done at compile-time (statically).
+3) The return type of the function may or may not be the same.
+4) Function overloading improves code readability by allowing similar operations to share a name.
+
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    // Function to add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded function to add two floats
+    float add(float a, float b) {
+        return a + b;
+    }
+
+    // Overloaded function to add three integers
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+};
+
+int main() {
+    Calculator calc;
+    cout << calc.add(3, 4) << endl;       // Calls add(int, int)
+    cout << calc.add(3.5f, 2.1f) << endl; // Calls add(float, float)
+    cout << calc.add(1, 2, 3) << endl;    // Calls add(int, int, int)
+    return 0;
+}
+
+## OPERATOR OVERLOADING ##
+MEANING:
+Operator overloading allows you to redefine or "overload" the built-in operators (such as +, -, *, etc.) for user-defined types (like classes). This enables operators to work with objects of custom types.
+
+Key Points:
+
+1) You can redefine operators for custom types.
+2) The functionality of existing operators is extended without changing their original behavior for built-in types.
+3) Operator overloading makes code more intuitive and readable when working with complex data types.
+
+CODE:
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    float real, imag;
+
+public:
+    // Constructor to initialize complex number
+    Complex(float r = 0, float i = 0) : real(r), imag(i) {}
+
+    // Operator overloading for '+'
+    Complex operator + (const Complex& obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+
+    // Display the complex number
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(3.0, 2.0), c2(1.5, 2.5);
+    Complex c3 = c1 + c2; // Uses the overloaded '+' operator
+    c3.display();         // Output: 4.5 + 4.5i
+    return 0;
+}
+
+
+## CONSTRUCTORS IN DERIVED CLASS ##
+
+# Constructors in Derived Class in C++ #
+
+We can use constructors in derived classes in C++
+If the base class constructor does not have any arguments, there is no need for any constructor in the derived class
+But if there are one or more arguments in the base class constructor, derived class need to pass argument to the base class constructor
+If both base and derived classes have constructors, base class constructor is executed first
+
+
+
+# Constructors in Multiple Inheritances #
+
+In multiple inheritances, base classes are constructed in the order in which they appear in the class deceleration. For example if there are three classes “A”, “B”, and “C”, and the class “C” is inheriting classes “A” and “B”. If the class “A” is written before class “B” then the constructor of class “A” will be executed first. But if the class “B” is written before class “A” then the constructor of class “B” will be executed first.
+In multilevel inheritance, the constructors are executed in the order of inheritance. For example if there are three classes “A”, “B”, and “C”, and the class “B” is inheriting classes “A” and the class “C” is inheriting classes “B”. Then the constructor will run according to the order of inheritance such as the constructor of class “A” will be called first then the constructor of class “B” will be called and at the end constructor of class “C” will be called.
+
+# INITIALIZATION LIST IN CONSTRUCTORS #
+
+class Test
+{
+    int a;
+    int b;
+
+public:
+    Test(int i, int j) : a(i), b(j)
+    {
+        cout << "Constructor executed"<<endl;
+        cout << "Value of a is "<<a<<endl;
+        cout << "Value of b is "<<b<<endl;
+    }
+};
+
+int main()
+{
+    Test t(4, 6);
+
+    return 0;
+}
+
+Test(int i, int j) : b(j), a(i+b)
+
+Test(int i, int j) : a(i), b(a + j)
+
+# POINTERS #
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    // Basic Example
+    int a = 4;
+    int* ptr = &a;
+    cout<<"The value of a is "<<*(ptr)<<endl;
+  
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    float *p = new float(40.78);
+    cout << "The value at address p is " << *(p) << endl;
+    
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+
+int main(){
+  
+    int *arr = new int[3];
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    cout << "The value of arr[0] is " << arr[0] << endl;
+    cout << "The value of arr[1] is " << arr[1] << endl;
+    cout << "The value of arr[2] is " << arr[2] << endl;
+   
+    return 0;
+}
+
+OR 
+
+#include<iostream>
+using namespace std;
+
+int main(){
+  
+    int *arr = new int[3];
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    delete[] arr;
+    cout << "The value of arr[0] is " << arr[0] << endl;
+    cout << "The value of arr[1] is " << arr[1] << endl;
+    cout << "The value of arr[2] is " << arr[2] << endl;
+   
+    return 0;
+}
+
+### POINTING TO OBJECTS AND CLASSES OF CPP ###
+
+*** Pointer to objects in C++ ***
+
+#include<iostream>
+using namespace std;
+
+class Complex{
+    int real, imaginary;
+    public:
+        void getData(){
+            cout<<"The real part is "<< real<<endl;
+            cout<<"The imaginary part is "<< imaginary<<endl;
+        }
+
+        void setData(int a, int b){
+            real = a;
+            imaginary = b;
+        }
+
+};
+int main(){
+    Complex *ptr = new Complex;
+    (*ptr).setData(1, 54); is exactly same as
+    (*ptr).getData(); is as good as 
+
+    return 0;
+}
+# Arrow Operator in C++ #
+
+#include<iostream>
+using namespace std;
+
+class Complex{
+    int real, imaginary;
+    public:
+        void getData(){
+            cout<<"The real part is "<< real<<endl;
+            cout<<"The imaginary part is "<< imaginary<<endl;
+        }
+
+        void setData(int a, int b){
+            real = a;
+            imaginary = b;
+        }
+
+};
+int main(){
+    Complex *ptr = new Complex;
+    ptr->setData(1, 54);
+    ptr->getData(); 
+
+    // Array of Objects
+    Complex *ptr1 = new Complex[4]; 
+    ptr1->setData(1, 4); 
+    ptr1->getData();
+    return 0;
+}
+
+
+# ARRAY OF OBJECTS USING POINTERS #
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class ShopItem {
+    int id;
+    float price;
+public:
+    // Function to set the data for the shop item
+    void setData(int a, float b) {
+        id = a;
+        price = b;
+    }
+
+    // Function to get the data of the shop item
+    void getData(void) {
+        cout << "Code of this item is " << id << endl;
+        cout << "Price of this item is " << price << endl;
+    }
+};
+
+int main() {
+    int size = 3; // Size of the shop items array
+    ShopItem *ptr = new ShopItem[size]; // Dynamically allocate array of ShopItem objects
+    ShopItem *ptrTemp = ptr; // Temporary pointer to traverse the array
+
+    int p, i;
+    float q;
+    
+    // Input loop to set data for each item
+    for (i = 0; i < size; i++) {
+        cout << "Enter id and price of item " << i + 1 << endl;
+        cin >> p >> q;
+        ptr->setData(p, q); // Set data for the item
+        ptr++; // Move pointer to the next object
+    }
+
+    ptr = ptrTemp; // Reset the pointer back to the start of the array
+
+    // Output loop to get data for each item
+    for (i = 0; i < size; i++) {
+        cout << "Item number: " << i + 1 << endl;
+        ptr->getData(); // Get data for the item
+        ptr++; // Move pointer to the next object
+    }
+
+    delete[] ptrTemp; // Free dynamically allocated memory
+
+    return 0;
+}
+
+# "THIS" IN C++ PROGRAM #
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class A{
+    int a;
+    public:
+    void setValue(int x){
+        this->a = x;
+    }
+    void getData(){
+        cout<<"the value of a is: "<<a<<endl;
+    }
+};
+
+int main(){
+    A a;
+    a.setValue(6);
+    a.getData();
+    return 0;
+}
+
+
+## POLYMORPHISM ##
+
+THERE ARE USUALLY TWO TYPES OF POLYMORPHISM
+
+1) COMPILE TIME POLYMORPHISM
+1.1 Function overloading
+1.2 Operator overloading
+
+2) RUN TIME POLYMORPHISM
+2.1 Virtual function
+
+## POINTERS TO DERIVED CLASSES ##
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Baseclass{
+public:
+int var_base;
+void display(){
+    cout<<"Displaying Base class variable var_base"<<var_base<<endl;
+
+}
+};
+
+class DerivedClass : public Baseclass{
+    public:
+    int var_derived;
+    void display(){
+        cout<<"Displaying Base class variable var_base"<<var_base<<endl;
+        cout<<"Displaying Dervied class variable var_derived"<<var_derived<<endl;
+    }
+};
+
+int main(){
+    Baseclass *base_class_pointer;
+    Baseclass obj_base;
+    DerivedClass obj_derived;
+    base_class_pointer = &obj_derived;
+
+    base_class_pointer->var_base = 34;
+    base_class_pointer->display();
+
+    base_class_pointer->var_base = 2400;
+    base_class_pointer->display();
+
+    DerivedClass * derived_class_pointer;
+    derived_class_pointer = &obj_derived;
+    derived_class_pointer->var_base = 9448;
+    derived_class_pointer->var_derived = 98;
+    derived_class_pointer->display();
+
+    return 0;
+
+
+}
+
+
+## VIRTUAL FUNCTION IN CPP ##
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Baseclass{
+public:
+int var_base = 1;
+virtual void display(){
+    cout<<"1 Displaying Base class variable var_base"<<var_base<<endl;
+
+}
+};
+
+class DerivedClass : public Baseclass{
+    public:
+    int var_derived = 2;
+    void display(){
+        cout<<"2 Displaying Base class variable var_base"<<var_base<<endl;
+        cout<<"2 Displaying Dervied class variable var_derived"<<var_derived<<endl;
+    }
+};
+
+int main(){
+     Baseclass * base_class_pointer;
+    Baseclass obj_base;
+    DerivedClass obj_derived;
+
+    base_class_pointer = &obj_derived;
+    base_class_pointer->display();
+
+    return 0;
+
+
+}
+
+## EXTRAS ##
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+class Course {
+public:
+    string courseName;
+
+    Course(string courseName)
+        : courseName(courseName) {}
+};
+
+class Student {
+public:
+    string studentName;
+    vector<Course> courses;
+
+    Student(string studentName)
+        : studentName(studentName) {}
+
+    void listEnrolledCourses() {
+        for (Course course : courses) {
+            cout << course.courseName << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Course course1("Introduction to Programming");
+    Course course2("Data Structures");
+
+    Student student1("Alice");
+    Student student2("Bob");
+
+    student1.courses.push_back(course1);
+    student1.courses.push_back(course2);
+    student2.courses.push_back(course1);
+
+    cout << "Courses enrolled by Alice: ";
+    student1.listEnrolledCourses();
+
+    cout << "Courses enrolled by Bob: ";
+    student2.listEnrolledCourses();
+
+    return 0;
+}\\
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+public:
+    int real;
+    int imaginary;
+
+    Complex(int _real, int _imaginary) : real(_real), imaginary(_imaginary) {}
+
+    // Overload the + operator to add two Complex objects
+    Complex operator+(const Complex& other) {
+        return Complex(real + other.real, imaginary + other.imaginary);
+    }
+};
+
+int main() {
+    Complex c1(1, 2);
+    Complex c2(3, 4);
+
+    Complex result = c1 + c2; // Uses the overloaded + operator
+
+    cout << "Result: (" << result.real << ", " << result.imaginary << ")";
+    return 0;
+}
+
+
+
+
+## EXAMPLE OF VIRTUAL FUNCTION ##
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class CWH {
+protected:
+    string title;
+    float rating;
+
+public:
+    CWH(string s, float r) {
+        title = s;
+        rating = r;
+    }
+    virtual void display() {} // Virtual function to be overridden
+};
+
+class CWHVideo : public CWH {
+    float videoLength;
+
+public:
+    CWHVideo(string s, float r, float vl) : CWH(s, r) {
+        videoLength = vl;
+    }
+    void display() {
+        cout << "This is an amazing video with title " << title << endl;
+        cout << "Ratings: " << rating << " out of 5 stars" << endl;
+        cout << "Length of this video is: " << videoLength << " minutes" << endl;
+    }
+};
+
+class CWHText : public CWH {
+    int words;
+
+public:
+    CWHText(string s, float r, int wc) : CWH(s, r) {
+        words = wc;
+    }
+    void display() {
+        cout << "This is an amazing text tutorial with title " << title << endl;
+        cout << "Ratings: " << rating << " out of 5 stars" << endl;
+        cout << "Length of this text tutorial is: " << words << " words" << endl;
+    }
+};
+
+int main() {
+    string title;
+    float rating, vlen;
+    int words;
+
+    title = "Django tutorial";
+    vlen = 4.56;
+    rating = 4.89;
+    CWHVideo djVideo(title, rating, vlen);
+
+    title = "HTML tutorial";
+    words = 500;
+    rating = 4.5;
+    CWHText djText(title, rating, words);
+
+    CWH* tuts[2];
+    tuts[0] = &djVideo;
+    tuts[1] = &djText;
+
+    tuts[0]->display();
+    tuts[1]->display();
+
+    return 0;
+}
+
+## ABSTRACT BASE CLASS AND PURE VIRTUAL FUNCTION ##
+
+class CWH{
+    protected:
+        string title;
+        float rating;
+    public:
+        CWH(string s, float r){
+            title =  s;
+            rating = r;
+        }
+        virtual void display()=0;
+};
+class CWHVideo: public CWH
+{
+    float videoLength;
+    public:
+        CWHVideo(string s, float r, float vl): CWH(s, r){
+            videoLength = vl;
+        }
+        void display(){
+            cout<<"This is an amazing video with title "<<title<<endl;
+            cout<<"Ratings: "<<rating<<" out of 5 stars"<<endl;
+            cout<<"Length of this video is: "<<videoLength<<" minutes"<<endl;
+        }
+};    
+class CWHText: public CWH
+{
+    int words;
+    public:
+        CWHText(string s, float r, int wc): CWH(s, r){
+            words = wc;
+        }
+     void display(){
+      cout<<"This is an amazing text tutorial with title "<<title<<endl;
+      cout<<"Ratings of this text tutorial: "<<rating<<" out of 5 stars"<<endl;
+      cout<<"No of words in this text tutorial is: "<<words<<" words"<<endl;
+         }
+};
+int main(){
+    string title;
+    float rating, vlen;
+    int words;
+
+    // for Code With Harry Video
+    title = "Django tutorial";
+    vlen = 4.56;
+    rating = 4.89;
+    CWHVideo djVideo(title, rating, vlen);
+
+    // for Code With Harry Text
+    title = "Django tutorial Text";
+    words = 433;
+    rating = 4.19;
+    CWHText djText(title, rating, words);
+
+    CWH* tuts[2];
+    tuts[0] = &djVideo;
+    tuts[1] = &djText;
+
+    tuts[0]->display();
+    tuts[1]->display();
+
+    return 0;
+}
+
+# INPUT/OUTPUT FILE: READING AND WRITING IN FILE
+
+TO WRITE IN FILE:
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main(){
+    string st = "Kovidhraj";
+
+    ofstream out("koko.txt");
+    out<<st;
+    out.close();
+
+    return 0;
+}
+
+# TO READ FROM THE FILE:
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+
+int main(){
+    /*string st = "Kovidhraj";
+
+    ofstream out("koko.txt");
+    out<<st;
+    out.close();
+*/
+
+string st2;
+ifstream in("koko.txt");
+in>>st2;
+getline(in, st2);
+cout<<st2;
+    return 0;
+}
+
+## YOU CAN ALSO READ AND WRITE IN THE SAME PROGRAM ##
+
+    string st;
+  // Opening files using constructor and reading it
+    ifstream in("this.txt"); // Read operation
+    in>>st;
+
+    string st = "Harry bhai";
+    // Opening files using constructor and writing it
+    ofstream out("this.txt"); // Write operation
+    out<<st;
+
+<object_name>.close();
+
+
+FULL CODE:
+
+#include<iostream>
+#include<fstream>
+ 
+using namespace std;
+ 
+int main(){
+ 
+              // connecting our file with hout stream
+               ofstream hout("sample60.txt");
+   
+               // creating a name string variable and filling it with string entered by the user
+              string name;
+               cout<<"Enter your name: ";
+              cin>>name;
+     
+             // writing a string to the file
+             hout<<name + " is my name";
+ 
+            // disconnecting our file
+            hout.close();
+            // connecting our file with hin stream
+           ifstream hin("sample60.txt");
+ 
+          // creating a content string variable and filling it with string present there in the text file
+           string content;
+            hin>>content;
+           cout<<"The content of the file is: "<<content;
+ 
+           // disconnecting our file
+           hin.close();
+           return 0;
+}
+
+## FILE I/O IN CPP USING OPEN() AND EOF() FUNCTIONS ##
+
+THIS IS USED TO WRITE A NOTE INSIDE THE FILE THROUGH CODE
+
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main(){
+
+    ofstream out;
+    out.open("koko.txt");
+
+    out<<"this is me\n";
+    out<<"this is ypou\n";
+    out<<"this is hyolyn\n";
+    out<<"this is koko\n";
+
+    return 0;
+}
+
+NOW THIS CODE IS USED TO DISPLAY THE CONTENTS OF THE FILE
+
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main(){
+
+ifstream in;
+string st;
+
+in.open("koko.txt");
+
+while(in.eof() == 0){
+
+getline(in,st);
+cout<<st<<endl;
+
+}
+return 0;
+}
+
+
+## TEMPLATES IN C++ ##
+
+
+1) EXAMPLE OF A TEMPLATE  IN C++
+
+DRY CODE:
+
+
+#include<iostream>
+using namespace std;
+
+template <class T>
+class vector{
+T *arr;
+int size;
+public:
+
+vector(T *arr){
+size = m;
+arr = new int[size];
+};
+
+int main(){
+vector<int> myVec1();
+vector<float> myVec2();
+return 0;
+}
+
+
+2) USING OF TEMPLATE FOR CODE BASED ON SAMPLE EXAMPLE OF VECTOR
+
+# CODE WITHOUT TEMPLATE
+
+#include <iostream>
+using namespace std;
+
+class vector{
+public:
+int *arr;
+int size;
+vector(int m){
+size = m;
+arr = new int[size];
+}
+int dotProduct(vector &v){
+int d = 0;
+for(int i = 0;i < size;i++){
+d +=this->arr[i]*v.arr[i];
+}
+return d;
+}
+};
+
+int main(){
+vector v1(3);
+v1.arr[0] = 4;
+v1.arr[1] = 2;
+v1.arr[2] = 5;
+
+vector v2(3);
+v2.arr[0] = 1;
+v2.arr[1] = 7;
+v2.arr[2] = 2;
+
+int a = v1.dotProduct(v2);
+cout<<a<<endl;
+
+return 0;
+
+}
+
+# SAME BUT WITH TEMPLATE IN IT
+
+#include <iostream>
+using namespace std;
+
+template <class T>
+class vector
+{
+public:
+
+T *arr;
+int size;
+vector(int m){
+size = m;
+arr = new T[size];
+}
+T dotProduct(vector &v){
+T d=0;
+for(int i=0;i<size;i++){
+d += this->arr[i]*v.arr[i];
+}
+return d;
+}
+};
+
+int main(){
+vector<float> v1(3);
+v1.arr[0] = 2;
+v1.arr[1] = 1;
+v1.arr[2] = 4;
+
+vector<float> v2(3);
+v2.arr[0] = 5;
+v2.arr[1] = 2;
+v2.arr[2] = 1;
+
+float a = v1.dotProduct(v2);
+cout<<a<<endl;
+return 0;
+}
+
+# C++ TEMPLATES: TEMPLATES WITH MULTIPLE PARAMETERS #
+
+#include <iostream>
+using namespace std;
+
+class MyClass{
+
+public:
+int data1;
+char data2;
+void display(){
+cout<this->data1<<" "<<this->data2;
+}
+};
+
+(NOW WITH TEMPLATE)
+
+template<class T1,class T2>
+class myclass{
+public:
+T1 data1;
+T2 data2;
+myClass(T1 a,T2 b){
+data1 = a;
+data2 = b;
+}
+void display(){
+cout<<this->data1<<" "<<this->data2;
+}
+};
+
+int main(){
+myClass<int, char> obj(1,'c');
+obj.display();
+
+OR
+
+myClass<int, float> obj(1,1.4);
+obj.display();
+}
+return 0;
+ 
+}
+
+## CLASS TEMPLATES WITH DEFAULT PARAMETERS ##	
+
+#include <iostream>
+using namespace std;
+
+template <class T1 = int,class T2=float,class T3=char>
+class Harry{
+public:
+T1 a;
+T2 b;
+T3  c;
+
+Harry(T1 x,T2 y,T3 z){
+a = x;
+b = y;
+c = z;
+}
+void display(){
+cout<<"The value of a is: "<<a<<endl;
+cout<<"The value of b is: "<<b<<endl;
+cout<<"The value of c is: "<<c<<endl;
+
+}
+};
+
+int main(){
+Harry<> h(3, 6.3, 'x');
+h.display();
+cout<<endl;
+Harry<float,char,char> g(1.2,'o','p');
+g.display();
+return 0;
+}
+
+## C++ FUNCION TEMPLATES & FUNCTION TEMPLATES WITH PARAMETERS ##
+
+major code:
+
+template<class T1 = int, class T2 = float>
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template<class T1,class T2>
+float funcAverage(T1 a,T2 b){
+    float avg = (a+b)/2;
+    return avg;
+} 
+
+int main(){
+    float a;
+    a = funcAverage(5,3);
+    cout<<"the average of the two numbers is"<<a<<endl;
+    return 0;
+}
+
+OR
+
+int main(){
+float a;
+a = funcAverage(5,4,2);
+printf("The average of these number is %f",a);
+return 0;
+}
+
+template function for swap:
+
+templae <class T>
+void swap(T &a,T &b)
+{
+
+T temp = a;
+a = b;
+b = temp;
+}
+
+## Member Function Templates & Overloading Template Function ##
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template <class T>
+class Harry {
+public:
+    T data; // Corrected colon to semicolon
+
+    Harry(T a) {
+        data = a;
+    }
+
+    void display();
+};
+
+template <class T>
+void Harry<T>::display() {
+    cout << data;
+}
+
+int main() {
+    Harry<float> h(5.7);
+    cout << h.data << endl;  // Direct access is fine since data is public now
+    h.display();
+    return 0;
+}
+
+## THE C++ STANDARD TEMPLATE LIBRARY ##
+
+COMPONENTS OF STL:
+
+1) Containers
+2) Algorithm
+3) Iterators
+
+
+1) CONTAINERS:
+
+Container is an object which stores data. We have different containers having their own benefits. These are the implemented template classes for our use, which can be used just by including this library. You can even customise these template classes.
+
+
+2) ALGORITHMS:
+
+Algorithms are a set of instructions which manipulates the input data to arrive at some desired result. In STL, we have already written algorithms, for example, to sort some data structure, or search some element in an array. These algorithms use template functions. 
+
+3) ITERATORS:
+
+Iterators are objects which refer to an element in a container. And we handle them very much similarly to a pointer. Their basic job is to connect algorithms to the container and play a vital role in manipulation of the data. 
+
+
+1) CONTAINERS IN C++ STL:
+
+Containers are themselves of three types: 
+
+Sequence Containers
+Associative Containers
+Derived Containers
+
+When we talked about containers, we said containers are objects which store data, but what are its three types all about? We’ll discuss that too.
+
+Sequence Containers
+A sequence container stores that data in a linear fashion. Refer to the illustration below to understand what storing something in a linear fasion.
+
+Sequence containers include Vector, List, Dequeue etc. These are some of the most used sequence containers.
+
+Associative Containers
+An associative container is designed in such a way that enhances the accessing of some element in that container. It is very much used when the user wants to fastly reach some element. Some of these containers are, Set, Multiset, Map, Multimap etc.  They store their data in a tree-like structure.
+
+
+
+Derived Containers 
+ As the name suggests, these containers are derived from either the sequence or the associative containers. They often provide you with some better methods to deal with your data. They deal with real life modelling. Some examples of derived containers are Stack, Queue, Priority Queue, etc. The following illustration give you the idea of how a stack works.
+
+
+
+Figure 3: A stack, works on the first in first out [FIFO] method
+
+Now since we have got the basic idea of all the three types of containers, a question which might arise is when to use which.  So, let’s deal with that,
+
+In sequence containers, we have Vectors, which has following properties:
+
+Faster random access to elements in comparison to array
+Slower insertion and deletion at some random position, except at the end.
+Faster insertion at the end.ng in a linear fashion means.
+
+
+In Lists, we have,
+
+Random accessing elements is too slow, because every element is traversed using pointers.
+Insertion and deletion at any position is relatively faster, because they only use pointers, which can easily be manipulated.
+
+## VECTORS IN STL C++ ##
+
+vector<data_type> vector_name;
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+void display(vector<int> &v){
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+} 
+int main(){
+ 
+    vector<int> vec1;
+ int element, size;
+    cout<<"Enter the size of your vector"<<endl;
+    cin>>size;
+    for (int i = 0; i < size; i++)
+    {
+        cout<<"Enter an element to add to this vector: ";
+        cin>>element;
+        vec1.push_back(element);
+    }
+    display(vec1);    
+    return 0;
+}
+pop_back():
+This method of vectors, deletes the last element of the vector. Refer to the code snippet and the following output below
+
+    display(vec1);
+    vec1.pop_back();
+    display(vec1);
+
+Insert (iterator, element to insert):
+This method of vectors inserts an element to the position the iterator is pointing to. Now how to evoke that iterator? Refer to the snippet and the output below:
+
+  vector<int> :: iterator iter = vec1.begin();
+
+display(vec1);
+    vector<int> :: iterator iter = vec1.begin(); // Using begin () points the iterator to the starting of the vector
+    vec1.insert(iter,566);
+    display(vec1);
+
+## RANDOM ACCESS ##
+
+In C++, random access in file handling allows you to move the file pointer to any position in a file, enabling direct access to data rather than sequentially reading or writing it. This is useful when you want to quickly jump to specific parts of a file for reading or writing.
+
+Key Functions for Random Access:
+seekg() (for input files)
+
+Moves the file pointer for input operations (reading).
+Syntax: file.seekg(position, direction);
+position: Offset from direction.
+direction: It can be one of the following:
+ios::beg (from the beginning of the file)
+ios::cur (from the current position)
+ios::end (from the end of the file)
+seekp() (for output files)
+
+Moves the file pointer for output operations (writing).
+Syntax: file.seekp(position, direction);
+Similar parameters to seekg().
+tellg() (for input files)
+
+Returns the current position of the file pointer (for reading).
+Syntax: file.tellg();
+tellp() (for output files)
+
+Returns the current position of the file pointer (for writing).
+Syntax: file.tellp();
+
+Key Points:
+seekg() and seekp() allow you to move the file pointer for reading and writing, respectively.
+
+tellg() and tellp() return the current file pointer position for input and output.
+
+Random access is useful for large files where reading or writing only a specific portion of the file is needed, improving efficiency.
+
+
+CODE:
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file("example.txt", ios::in | ios::out | ios::binary);
+
+    if (!file) {
+        cout << "Error opening file!" << endl;
+        return 1;
+    }
+
+    // Writing to the file
+    file << "Hello World!";
+    
+    // Move the file pointer to the beginning for reading
+    file.seekg(0, ios::beg);
+    
+    // Read the first 5 characters
+    char buffer[6];
+    file.read(buffer, 5);
+    buffer[5] = '\0'; // Null-terminate the string
+    
+    cout << "Read: " << buffer << endl;  // Output: Hello
+    
+    // Move the file pointer to the 6th position for writing
+    file.seekp(6, ios::beg);
+    file << "C++"; // Overwrites part of the file
+    
+    // Move to the beginning again for reading
+    file.seekg(0, ios::beg);
+    
+    // Read the modified file content
+    char modified[13];
+    file.read(modified, 12);
+    modified[12] = '\0'; // Null-terminate the string
+    
+    cout << "Modified: " << modified << endl; // Output: Hello C++ld!
+    
+    file.close();
+    return 0;
+}
+
+## LISTS IN C++ ##
+
+A List is a bi-directional linear storage of elements. Few key features as to why a list should be used is, 
+
+It gives faster insertion and deletion operations.
+Its access to random elements is slow.
+
+Before using lists, we must include the header file <list>.
+
+Using a simple program, we'll iterate through the list and display its contents.
+
+As we did for vectors, first define a list list1.
+
+And push_back a few elements, and pass the list to a display function via reference.
+
+Due to the fact that a list element cannot be directly accessed by its index, we must traverse through each element and print them.
+
+We define a list iterator using this syntax:
+
+     list<int> :: iterator it;
+
+We use two methods, begin() and end() to define the starting and the end of the loop. end() returns the pointer next to the last element.
+
+CODE:( MAIN CODE )
+
+#include<iostream>
+#include<list>
+ 
+using namespace std;
+ 
+void display(list<int> &lst){
+    list<int> :: iterator it;
+    for (it = lst.begin(); it != lst.end(); it++)
+    {
+        cout<<*it<<" ";
+    }
+    
+}
+ 
+int main(){
+    
+    list<int> list1;  //empty list of 0 length
+ 
+    list1.push_back(5);
+    list1.push_back(7);
+    list1.push_back(1);
+    list1.push_back(9);
+    list1.push_back(12);
+ 
+    display(list1);
+ 
+    return 0;
+}
+
+
+## OR ## 
+
+int main(){
+    
+    list<int> list2(3);  //empty list of length 3
+    list<int> :: iterator it = list2.begin();
+    *it = 45;
+    it++;
+    *it = 6;
+    it++;
+    *it = 9;
+    it++;
+ 
+    display(list2);
+ 
+    return 0;
+}
+
+
+Using pop_back() and pop_front():
+We can use pop_back() to delete one element from the back of the list everytime we call this method and pop_front() to delete elements from the front.
+
+    list1.pop_back();
+    display(list1);
+    list1.pop_front();
+    display(list1);
+
+### OR ###
+
+int main(){
+    
+    list<int> list1;  //empty list of 0 length
+ 
+    list1.push_back(5);
+    list1.push_back(7);
+    list1.push_back(1);
+    list1.push_back(9);
+    list1.push_back(9);
+    list1.push_back(12);
+    
+    list1.remove(9);
+    display(list1);
+ 
+    return 0;
+}
+
+
+    display(list1);
+    list1.sort();
+    display(list1);

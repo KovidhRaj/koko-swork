@@ -1,0 +1,470 @@
+# NOTES FOR JAVASCRIPT FULL AND ADVANCED #
+
+1) VARIABLES
+
+NOTE: JAVASCRIPT IS PROGRAMMING LANGUAGE THAT ALLOWS TO CHANGE ANY DATA TYPE DURING
+RUN TIME AND SUCH LANGUAGES ARE CALLED OR SAID TO BE DYNAMICALLY TYPED PROGRAMING LANGUAGE.
+
+let a = 90;
+console.log(a);
+a = "kovidhraj";
+console.log(a);
+
+
+var a = 99; // BECAUSE OF VAR THIS WILL THROW AN ERROR AS THIS ONE IS DEDICATED TO GIVE ONLY 
+INTEGER VALUE TO THE VARIABLE "a" HENCE THROWS THE ERROR.
+
+console.log(a);
+let a = 90;
+console.log(a);
+a = "kovidhraj";
+console.log(a);
+
+2) VAR, LET AND CONST USED IN JAVASCRIPT !!! 
+
+
+var a = 90;
+var b = "kovidh";
+// YOU CAN EITHER PUT IT WITH LET OR VAR BUT IT WILL GIVE OUTPUT AS
+
+GOOD
+KOVIDH
+
+{
+    let b = "good";
+    console.log(b);
+}
+
+console.log(b);
+
+// BUT THIS PART WILL THROW AN ERROR
+
+var a = 90;
+const b = "kovidh";
+
+{
+    var b = "good";
+    console.log(b);
+}
+
+console.log(b);
+
+// VAR CAN BE RE-DECLARED WHILE LET OR CONST CANNOT BE RE-DECLARED 
+
+//
+var is globally scoped while let and const are block scoped.
+
+var can be updated & re-declared within its scope.
+
+let can be updated but not re-declared.
+
+const can neither be updated nor be re-declared.
+
+var variables are initialized with undefined whereas let and const variables are not initialized.
+
+const must be initialized during declaration unlike let and var.
+
+//
+
+3) PRIMITIVES AND OBJECTS IN JAVASCRIPTS
+
+These are 7 primitive datatypes in JavaScript:
+
+Null
+Number
+String
+Symbol
+Undefined
+Boolean
+BigInt
+
+// nn bb ss u
+
+let a = null;
+let b = 345;
+let c = true;
+let d = BigInt("442") + BigInt("3");
+let e = "Kovidh";
+let f = Symbol("i am ironman");
+
+console.log(a,b,c,d,e,f);
+
+console.log(typeof a);
+
+// OBJECTS IN JAVASCRIPT 
+
+
+
+const item = {
+    "Kovidh": true,
+    "gauri": false,
+    "Lovish": 67,
+    "tina": undefined
+}
+console.log(item["Kovidh"]);
+console.log(item["gauri"]);
+console.log(item["tina"]);
+console.log(item["Lovish"]);
+
+
+const a = {
+
+    name:"Kovidh",
+    age: 20
+}
+// a = 90;
+
+a['friend'] = "mohit";
+a['friend2'] = "neil";
+
+console.log(a);
+
+4) EXPRESSIONS AND OPERATORS
+
+## OPERATORS ##
+
+a) ARITHMETIC OPERATORS
+
+
+let a = 90;
+let b = 2;
+
+console.log("a + b =", a + b);
+console.log("a - b =",a-b);
+console.log("a * b =",a*b);
+console.log("a / b =",a/b);
+console.log("a ** b =",a**b);
+console.log("a % b =", a%b);
+
+post increment and pre increment
+
+console.log("a++:",a++);
+console.log("a:",a);
+
+console.log("++a:",++a);
+console.log("a:",a);
+
+post decrement and pre decrement
+
+console.log("a--:",a--);
+console.log("a:",a);
+
+console.log("--a:",--a);
+console.log("a:",a);
+
+b) ASSIGMENT OPERATOR
+
+=
+
+x=y
+
++=
+
+x=x+y
+
+-=
+
+x=x-y
+
+*=
+
+x=x*y
+
+/=
+
+x=x/y
+
+%=
+
+x=x%y
+
+**=
+
+x=x**y
+
+c) COMPARISON OPERATORS
+
+a = 8;
+b = 6;
+
+console.log("a == b is",a == b);
+console.log("a != b is",a != b);
+console.log("a === b is",a === b);
+console.log("a !== b is",a !== b);
+console.log("a >= b is",a >= b);
+console.log("a <= b is",a <= b);
+console.log("a < b is",a < b);
+console.log("a > b is",a > b);
+
+
+==
+
+Equal to
+
+!=
+
+Not equal
+
+===
+
+Equal value and type
+
+!==
+
+Not equal value or not equal type
+
+> 
+
+Greater than
+
+< 
+
+Less than
+
+>=
+
+Greater than or equal to
+
+<=
+
+Less than or equal to
+
+?
+
+Ternary operator
+
+5) CONDITIONAL OPERATORS IN JAVASCRIPT
+
+let a = prompt("what is your age?")
+if(a > 20){
+    alert("great you can drive");
+}
+else{
+    alert("no you can not drive!!");
+}
+
+
+if (condition){
+  // block of code if condition true
+ }
+else {
+  // block of code if Condition false
+}
+
+
+if (age>0){
+  console.log(“A valid age”);
+}
+else if (age>10 && age<15){
+  console.log(“but you are a kid”);
+}
+else if (age>18){
+  console.log(“Not a kid”);
+else{
+  console.log(“Invalid Age”);
+}
+
+
+## Javascript ternary operator ## 
+Evaluates a condition and executes a block of code based on the condition.
+
+Condition ? exp1 : exp2
+
+Example syntax of ternary operator looks like this:
+
+(marks >10) ? ‘Yes’ : ’No’ 
+// if marks are greater than 10, you are passed else not
+
+// HOMEWORK IS TO EXPLORE THE SWITCH CASE IN JAVASCRIPT
+
+switch (expression) {
+    case value1:
+        // Code to execute if expression === value1
+        break;
+    case value2:
+        // Code to execute if expression === value2
+        break;
+    // Add more cases as needed
+    default:
+        // Code to execute if none of the above cases match
+}
+
+
+6) FOR LOOPS IN JAVASCRIPT
+
+let a = 5;
+
+for(let i = 0;i < 10;i++){
+    console.log("a x i = ",a*i);
+}
+
+
+let sum = 0;
+let n = prompt("enter the number");
+for(let i=0;i<n;i++){
+    sum += (i+1);
+}
+console.log("sum of first "+ n +" natural number is "+ sum);
+
+
+let marks = {
+    kovidh:79,
+    Raja:40,
+    Mohit:80,
+    Neil:77
+}
+for(let i=0;i<Object.keys(marks);i++){
+    console.log("the marks of " + Object.keys(marks)[i] +"are" + marks[Object.keys(marks)[i]])
+}
+
+
+ ## The for-in loop ##
+
+The syntax of for-in loop looks like this:
+
+for (key in object){
+//code to be executed
+}
+
+let marks = {
+    kovidh:79,
+    Raja:40,
+    Mohit:80,
+    Neil:77
+}
+for(let i in marks){
+        console.log(i);
+}
+
+
+ ## The for-of loop ##
+
+The syntax of for-of loop looks like this,
+
+for (variable of iterable){
+//code
+}
+// Iterable data structure like arrays, strings, etc.
+
+7) WHILE LOOPS IN JAVASCRIPT
+
+let a = 5;
+let i = 3;
+while(i < a){
+    console.log(i);
+    i++;
+}
+
+ ## DO WHILE LOOPS ##
+let a = 7;
+let i = 0;
+do{
+    console.log(i);
+    i++;
+}
+while(i < a);
+
+8) FUNCTIONS IN JAVASCRIPT
+
+function addAvg(x,y){
+    return 1 + (x+y)/2;
+}
+
+let a = 4;
+let b = 2;
+let c = 6;
+
+console.log("average plus one have a value of ",addAvg(a,b));
+console.log("average plus one have a value of ",addAvg(b,c));
+console.log("average plus one have a value of ",addAvg(c,a));
+
+
+Function invocation is a way to use the code inside the function. 
+
+A function can also return a value. The value is returned back to the caller.
+
+const sum = (a,b) => {
+let c = a+b;
+return c;    // returns the sum
+}
+
+// Above way or method can also be used to create and use the function
+
+let y = sum(1,3);
+consolge.log(y);    // prints 4
+
+9) STRINGS IN JAVASCRIPT
+
+
+let name = "Kovidhraj"
+console.log(name);
+console.log(typeof name);
+console.log(name.length);
+
+
+let boy1 = "kovidhraj";
+let boy2 = "Neil";
+
+let sentence = `${boy1} is friend of ${boy2}`
+console.log(sentence);
+
+NOTE:	
+## Template literals use backticks instead of quotes to define a string. ##
+
+## ESCAPE SEQUENCE ##
+If you try to print the following string, JavaScript will misunderstand it 
+
+let name = ‘Adam D’ Angelo’
+We can use single quote escape sequence to solve the problem,
+
+let name = ‘Adam D\’ Angelo’
+
+
+1. length method
+let name = “Harry”
+name.length     // prints 5
+ 
+
+2. toUpperCase() method
+let name = “Harry”
+name.toUpperCase()    // prints HARRY
+ 
+
+3. toLowerCase() method
+let name = “Harry”
+name.toLowerCase()    // prints harry
+ 
+
+4. slice method
+let name = “Harry”
+name.slice (2,4)    // prints rr (from 2 to 4, 4 not included)
+
+//Indexing starts from 0, so H is 0, a is 1 and so on.
+ 
+
+let name = “Harry”
+name.slice(2)        // prints rry (from 2 to end)
+ 
+
+5. replace method
+let name = “Harry Bhai”
+let newName = name.replace(“Bhai”, “Bhau”)
+ 
+
+6. concat method
+let name1 = “Harry”
+let name2 = “Naman”
+let name3 = name1.concat(name2, “Yes”)
+// We can even use + operator for concatenation
+ 
+
+7. trim method
+let name = “      Harry     ”
+let newName = name.trim()    // Removes whitespaces
+ 
+
+Strings are immutable. In order to access the character at an index we use the following syntax,
+
+let name = “Harry”
+name[0]    // Prints H
+name[1]    // Prints a

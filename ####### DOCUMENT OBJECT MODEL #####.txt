@@ -1,0 +1,54 @@
+####### DOCUMENT OBJECT MODEL #########
+
+
+1) text decoration (we usually take it as none)(we can use line through).
+2) we use <style> tag to connect html with css.
+3) we use <script> tag to connect html with js.
+4) most common code to connect css file with html file is <link rel = "stylesheets" href = "lllsxslll.css"/>
+5) we can use <script> tag just before </body> or </head> tag to initiate the connection of javascript to html.
+6) use of some javascript tags such as alert or prompt are so powerfull that the webpage can wait some time just to operate for that javascript code to run.
+7) in the inspect setting of the chrome of the google the key main elements while checking for the code are ELEMENETS AND CONSOLE.
+8) in the elements section we usually get HTML content and we can also explore the CSS part in the elements itself just below it we can find styles section.
+9) These starter codes are really usefull as they make the code more READABLE,MODULAR,BROWSER CACHING.
+10) WINDOW OBJECT: it is a browser's object and is automatically created by browser.
+and it is a global object with a lots of properties and methods.
+11) window.console.log() is also functionable.
+12) When the all the code of the html are converted into the javascript objects document and they are located in the window.
+13) console.dir() is used for printing special documents and properties of the window object.
+14) ChildNodes are the representation of the all the tags and css code used for ones webpage and these code are the in the hierarchical order.
+
+THEREFORE THE DOM IS THE USED TO WORK ON HTML USING JAVASCRIPT WITHOUT TOUCHING THE HTML CODES. JAVASCRIPT CAN BE USED TO DYNAMICALLY OR REMOTELY CHANGE THE HTML CODE
+
+15) DOM MANIPULATION:
+
+i) SELECTING WITH ID:
+document.getElementById("#myid")
+
+ii)SELECTING WITH CLASS
+document.getElementsByClassName(".myClass")
+
+iii) SELECTING WITH TAG
+document.getElementsByTagNmae("p")
+
+# HTML COLLECTION ARE VERY SIMILAR TO ARRAYS
+
+16) WE CAN ASLO USE QUERY SELECTORS TO SELECT OUR ELEMENTS
+
+documents.querySelectors("#myId/.myClass/tag")
+//returns first elements.
+
+documents.querySelectorsAll("id/class/tag")
+//returns a NodeList
+
+
+# PROPERTIES #
+
+1)tagName: returns tag for elements nodes
+2) innerText: retruns the text content of the elements and all its children
+3) innerHTML: returns the plain text or HTML contents in the element
+4) textContents: returns texutal contents even for the hidden elements.
+
+
+
+
+#### LEARN WHAT ARE FIRSTCHILD AND LASTCHILD AND OTHER THINGS RELATED TO IT

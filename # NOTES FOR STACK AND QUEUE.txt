@@ -1,0 +1,724 @@
+# NOTES FOR STACK,QUEUE,BINARY TREE AND SIMPLE TREE
+
+Stack:
+A stack is a linear data structure that follows the Last In, First Out (LIFO) principle, meaning the last element added to the stack is the first one to be removed. Think of it as a stack of plates, where you can only add or remove the top plate.
+
+Operations on Stack:
+
+Push: Add an element to the top of the stack.
+Pop: Remove the element from the top of the stack.
+Peek or Top: Get the top element of the stack without removing it.
+isEmpty: Check if the stack is empty.
+isFull: Check if the stack is full (in case of a fixed-size stack).
+Queue:
+A queue is also a linear data structure, but it follows the First In, First Out (FIFO) principle, meaning the first element added to the queue is the first one to be removed. Think of it as a line of people waiting, where the person who came first will be served first.
+
+Operations on Queue:
+
+queue follows (FIRST IN FIRST OUT).
+
+
+Enqueue: Add an element to the rear of the queue.
+Dequeue: Remove the element from the front of the queue.
+Front: Get the element at the front of the queue without removing it.
+Rear: Get the element at the rear of the queue without removing it.
+isEmpty: Check if the queue is empty.
+isFull: Check if the queue is full (in case of a fixed-size queue).
+
+QUEUE USING ARRAYS (EN0QUEUE)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct queue{
+int size;
+int f;
+int r;
+int *arr;
+};
+
+void enqueue(struct queue *q,int val){
+if(isFull(q)){
+printf("Queue Overflow");
+
+else{
+q->r = q-> r+1;
+q->arr[q->r] = val;
+}
+}
+int main(){
+struct queue q;
+q.size = 10;
+q.f = q.r = -1;
+q.arr = (int *)malloc(q.size * sizeof(int));
+}
+
+QUEUE USING ARRAYS (DEQUEUE)
+
+struct queue{
+int f;
+int r;
+int size;
+int *arr;
+};
+
+int dequeue(struct queue *q,int val){
+int val = -1;
+if(q->f == q->r){
+printf("Queue is empty");
+else{
+q->f = q->f+1;
+q->arr[q->f] = val;
+}
+return val;
+}
+
+$$##  DRAWBACK OF QUEUE USING ARRAYS:  $$##
+
+** SPACE IS NOT USED EFFICIENTLY **
+ 
+
+
+CIRCULAR QUEUE
+ENQUEUE
+
+for circular queue we used circular increment
+(i = i+1; --> liner increment.
+i = (i+1) % size;) --> circular increment 
+
+void enqueue(struct queue *q,int val){
+if((q->r +1)%q->size == q->f){
+printf("Queue Overflowd");
+
+else {
+q->r = (q->r+1)%q->size;
+q->arr[q->r] = val;
+}
+}
+
+DEQUEUE
+struct queue{
+int f;
+int r;
+int *arr;
+int val;
+};
+
+int dequeue(struct queue *q){
+int val = -1;
+if(q->r == q->f){
+printf("empty queue");
+else{
+q->f = (q->f+1)%q -> size;
+val = q->arr[r->f];
+}
+return val;
+}
+
+QUEUE USING LINKEDLIST
+
+struct N{
+int f;
+int r;
+};
+
+void enqueue(N *f,N *r,int val){
+
+N *n =(N*)malloc(sizeof(N));
+if(n == NULL){
+printf("Queue Full");
+
+else{
+n->data = val;
+n->next = NULL;
+if(f==NULL){
+f=r=n;
+}
+else{
+r->next = n;
+r=n;
+}
+}
+
+#DOUBLE ENDED QUEUE 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+1) structure t represent a dequeue
+struct dequeue{
+int f;
+int r;
+int arr[MAX_SIZE]
+};
+
+2) function initialization of the dequeue
+
+void intiDeque(Deque *deque){
+
+deque->f = -1;
+deque->r = -1;
+}
+
+3) function to check if the deque is empty
+
+int isEmpty(Deque *deque){
+return (deque->f == -1 && deque->r == -1);
+}
+
+4) function to check if the deque is full
+
+int isFull(Deque *deque){
+
+return (deque->r +1)%MAX_SIZE == deque->f;
+
+}
+
+
+5) Function to enqueu an element at the front of the deque
+
+void enqueue_F(Deque *deque, int val) {
+    if (isFull(deque)) {
+        printf("Deque is full. Cannot enqueue.\n");
+        return;
+    }
+    if (isEmpty(deque)) {
+        deque->front = deque->rear = 0;
+    } else {
+        deque->front = (deque->front - 1 + MAX_SIZE) % MAX_SIZE;
+    }
+    deque->arr[deque->front] = val;
+}
+
+6) Function to enqueue an element at the rear of the deque
+
+void enqueue_R(Deque *deque, int val){
+if(isFull(deque)){
+printf("Deque is full. Cannot enqueue.\n");
+return;
+}
+
+if(isEmpty(deque)) {
+deque->f = deque->r =0;
+}
+else {
+
+deque->r = (deque->r + 1)%MAX_SIZE;
+}
+deque->arr[deque->r] = val;
+}
+
+7) function to dequeue an element from the front of the deque
+
+int fequeue_F(Deque *deque){
+if(isEmpty(deque)){
+printf("Queue is empty");
+return -1;
+}
+int val = deque->arr[deque->f];
+if(deque->f == deque->r){
+deque->f = (deque->r+1)%MAX_SIZE;
+}
+return val;
+}
+
+8) function to dequeue an element from the rear of the deque
+
+int dequeue_R(Deque *deque){
+if(isEmpty(deque)){
+printf("Deque is underflowed");
+retrun -1;
+}
+int val = deque->arr[deque->rear];
+if(deque->f == deque->r) {
+deque->f = deque->r = -1;
+}
+else{
+deque->r = (deque->r -1 + MAX_SIZE)%MAX_SIZE;
+}
+return val;
+}
+
+ 
+
+
+
+
+
+Tree:
+
+A tree is a hierarchical data structure that consists of nodes connected by edges. It is composed of a root node, which is the topmost node, and each node has zero or more child nodes. The nodes at the bottom of the tree are called leaf nodes.
+
+Types of Trees:
+
+TERMINOLOGY:
+
+1) ROOT -> TOPMOST NODE
+2) PARENT->NODE WHICH CONNECTS TO THE CHILD
+3)CHILD->NODE WHICH IS CONNECTED BY ANOTHER NODE IS ITS CHILD
+4)LEAF/EXTERNAL NODE: NODE WITH NO CHILD!
+5)INTERNAL NODE: NODE WITH ATLEAST ONE CHILD
+6) DEPTH: NO.OF EDGES FROM ROOT TO THE NODE
+7) HEIGHT: NO.OF EDGES FROM ROLE TO THE DEEPEST LEAF.
+
+ 
+8) N NODES => N-1 EDGES
+9) DEGREE=>NO.OF DIRECT CHILDREN
+10) DEGREE OF A TREE IS THE HIGHEST DEGREE OF A NODE AMONG ALL THE NODES PRESENT IN THE TREE.
+11) BINARY TREE = TREE OF DEGREE 2 (NODES CAN HAVE 0,1 OR 2 CHILDREN).
+
+
+Binary Tree: A tree in which each node has at most two children.
+
+TYPES OF BINARY TREES
+
+1) FULL OR STRICT BINARY TREE
+
+2)PERFECT BINARY TREE
+
+3)COMPLETE BINARY TREE
+
+4) DEGENERATE TREE
+
+5) SKEWED TREE
+
+
+#REPRESENTATION OF BINARY TREE (ARRAY REPRESENTATION)
+
+ARRAY REPRESENTATION
+ BUT IT IS OFTEN AVOIDED BECOZ IT IS VERY TIEDIOUS JOB TO MAINTAIN THE INDEXING OF THE ELEMENTS  OF THE IN THE ARRAY WHILE BEING A BINARY TREE.\
+\
+
+LINKEDLIST REPRESENTATION OF THE BINARY TREE
+************************************************
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+int data;
+struct node *left;
+struct node *right;
+};
+
+int main(){
+struct node *p;
+p = (struct node)malloc(sizeof(struct node));
+p->left = NULL;
+p->right = NULL;
+
+struct node *p1;
+p1=(struct node *)malloc(sizeof(struct node));
+p1->left = NULL;
+p1->right = NULL;
+
+struct node *p2;
+p2 = (struct node *)malloc(sizeof(struct node));
+p2->left = NULL;
+p2->right = NULL;
+
+
+### NOW WE WILL CONNECT THE THESE TWO NODES TO THE ROOT NODE ###	
+
+p->left = p1;
+p->right = p2;
+retun 0;
+
+****************************************************
+
+
+
+
+
+Binary Search Tree (BST): A binary tree in which the left child of a node contains a value less than the node's value, and the right child contains a value greater than the node's value. This property enables efficient searching, insertion, and deletion operations.
+Balanced Tree: A tree in which the height difference between the left and right subtrees of any node is not more than one. Examples include AVL trees, Red-Black trees, etc.
+B-tree: A tree data structure that is optimized for disk read/write operations and is commonly used in databases and file systems.
+
+Operations on Binary Tree:
+
+Traversal: Visit each node of the tree in a specific order. Common traversal techniques include: 
+inorder transversal: left->ROOT->right.
+  
+preorder transversal: ROOT->left->right.
+ 
+and
+ 
+postorder traversal:left->right->ROOT.
+
+
+## CODE FOR PREORDER POSTORDER AND INORDER ##\
+
+1) PREORDER:
+******************************
+#include<stdio.h>
+#include<stilib.h>
+
+struct node{
+int left;
+int right;
+};
+
+
+void preorder(struct node *root){
+if(root!=NULL){
+printf(root->data);
+preorder(root->left);
+preorder(root->right);
+}
+
+
+
+struct node *createNode(int data){
+struct node *n;
+n = (struct node *)malloc(sizeof(struct node));
+n->data = data;
+n->left = NULL;
+n->right = NULL;
+return n;
+}
+
+int main(){
+struct node *p = createNode(4);
+struct node *p1 = createNode(8);
+struct node *p2 = createNode(3);
+struct node *p3 = createNode(5);
+struct node *p4 = createNode(9);
+
+p->left =p2;
+p->right =p3;
+p2->right =p1;
+p1->right =p4;
+
+return 0;
+}
+********************************
+
+2) POSTORDER
+**************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+int left;
+int right;
+};
+
+void postOrder(struct node *root){
+if(root!=NULL);
+postorder(root->left);
+postorder(root->right);
+printf("root->data");
+}
+
+struct node *createNode(int data){
+struct node *n;
+n = (struct node *)malloc(sizeof(struct node));
+n->data = data;
+n->left = NULL;
+n->right = NULL;
+}
+
+int main(){
+struct node *p =createNode(9);
+struct node *p1 = createNode(4);
+struct node *p2 = createNode(7);
+struct node *p3 = createNode(2);
+struct node *p4 = createNode(5);
+struct node *p5 = createNdoe(1);
+
+postorder(p);
+
+return 0;
+}
+****************************************************************************
+3) INORDER
+****************************************************************************
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+int left;
+int right ;
+};
+
+void inorder(struct node *root){
+if(root != NULL);
+inorder(root->left);
+printf("root->data");
+inorder(root->right);
+}
+
+struct node *createNode(int data){
+struct node *n;
+n = (struct node *)malloc(sizeof(struct node));
+n->data = data;
+n->left = NULL;
+n->right = NULL;
+}
+
+int main(){
+struct node *p = createNode(9);
+struct node *p1 = createNode(3);
+struct node *p2 = createNode(7);
+struct node *p3 = createNode(2);
+struct node *p4 = createNode(5);
+p->left = p1;
+p->rigt = p2;
+p1->left = p3;
+p2->left = p4;
+
+inorder(p);
+
+return 0;
+}
+*********************************************************************************
+
+***** TRICKS TO FIND INORDER,PREORDER AND POSTORDER TRAVERSAL*****
+
+DO IT IN NOTES, THAT WOULD BE EASY AND COOL TO REVISE
+
+***********************************************************************************
+
+********* IMPORTANT NOTE*********
+
+INORDER TRAVERSAL OF A BST GIVES AN ASCENDING SORTED ARRAY
+
+*****************************************
+
+### CHECK IF A BINARY TREE IS A BINARY SEARCH TREE OR NOT###
+
+******************************************
+
+**** SEARCH IN A BINARY SEARCH TREE ****
+
+1)
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+int left;
+int right;
+};
+
+struct node *Search(struct node *root,int key){
+if(root == NULL){
+retrun NULL;
+}
+if(root->data == key){
+retrun root;
+}
+else if(root->data > key){
+return search(root->left,key);
+}
+else{
+return search(root->right,key);
+}
+
+struct node *createNode(int data){
+struct node *n;
+n=(struct node *)malloc(sizeof(struct node));
+n->data = data;
+n->left = NULL;
+n->right = NULL;
+}
+
+int main(){
+struct node *p = createNode(8);
+struct node *p1 = createNode(4);
+struct node *p2 = createNode(9);
+struct node *p3 = createNode(2);
+struct node *p4 = createNode(1);
+
+p->left = p1;0000000000000000
+p->right = p2;
+p1->left = p3;
+p2->left = p4;
+
+struct node *n = search(p,4);
+if(n!=NULL){
+printf("FOUND: %d",n->data);
+}
+else{
+printf("element not found");
+}
+retrun 0;
+}
+**************************************************************
+
+2)***********INSERTION IN BINARY SEARCH TREE******************
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+int left;
+int right;
+};
+
+struct node *insert(struct node *root,int key){
+struct node *prev = NULL;
+while(root!=NULL){
+prev = root;
+if(key == root->data){
+return key;
+}
+else if(key<root->data){
+root=root->left;
+}
+else{
+root = root->right;
+}
+}
+
+****!!struct node *createNode(int data){
+struct node * n;
+n = (struct node *)malloc(sizeof(struct node));
+n->data = data;
+n->left = NULL;
+n->right = NULL;
+}!!*****   //THIS PART OF THR CODE IS NOT USED FOR THE INSERTION OF THE ELEMENTS IN BINARY SEARCH TREE SO WE WILL USE A DIFFERENT MODE FOR TAKING ELEMENTS FOR THE TREE.
+
+struct node *new = createNode(key);
+if(key<prev->data){
+root->left = new;
+}
+else{
+root->right = new;
+}
+}
+
+int main(){
+struct node *p = createNdoe(4);
+.
+.
+.
+.
+
+struct node *p5 = createNode(9);
+
+
+********** DELETING A NODE IN A BST ***************
+
+CASE 1) THE NODE IS A LEAF NODE.
+CASE 2) THE NODE IS A NON LEAF NODE.
+CASE 3) THE NODE IS THE ROOT NODE.
+
+## CASE 1: THE NODE IS A LEAF NODE ##
+
+STEP 1: SEARCH THE NODE 
+STEP 2: DELETE THE NODE.
+
+## CASE 2: THE NODE IS A NON LEAF NODE ##
+ 
+FOLLOWS RANDOM PATTERN AND ONLY THROUGH A CERTAIN SEQUENCE
+
+## CASE 3: THE NODE IS THE ROOT NODE IN BST ##
+
+STEP 1: SEARCH FOR THE NODE
+STEP 2: SEARCH FOR THE IPREORDER AND IPOSTORDER
+STEP 3: KEEP DOING THIS UNTIL THE TREE HAS NO EMPTY NODES.
+
+##########################################################
+function for deleting node from the tree
+
+
+
+struct node *new = creatNode(key);
+if(key<prev->data){
+prev->left = new;
+}
+else{
+prev->right = new;
+}
+}
+
+struct node *deleteNode(struct node *root,int value){
+if(value < root->data){
+deleteNode(root->left,value);
+}
+else if(value >root->data){
+deleteNode(root->right,value);
+}
+else{
+ipre = inOrderPredecessor(root);
+root->data = prev->root;
+deleteNode(root->left , ipre->data);
+
+}
+}
+
+Insertion: Add a new node to the tree.
+Deletion: Remove a node from the tree.
+Searching: Find a specific element in the tree.
+Operations on Binary Search Tree (BST):
+
+Insertion: Add a new node to the BST while maintaining the BST property.
+Deletion: Remove a node from the BST while maintaining the BST property.
+Searching: Find a specific element in the BST efficiently.
+
+
+
+
+
+// Function to insert a node into the binary tree
+struct TreeNode* insertNode(struct TreeNode* root, int data) {
+    if (root == NULL) {
+        root = createNode(data);
+    } else {
+        if (data <= root->data) {
+            root->left = insertNode(root->left, data);
+        } else {
+            root->right = insertNode(root->right, data);
+        }
+    }
+    return root;
+}
+
+
+// Function to perform inorder traversal of the binary tree
+void inorderTraversal(struct TreeNode* root) {
+    if (root != NULL) {
+        inorderTraversal(root->left);
+        printf("%d ", root->data);
+        inorderTraversal(root->right);
+    }
+}
+
+
+#################### GRAPHS IN DATA STRUCTURE #########################
+
+** FORMAL DEFINITION OF GRAPH **
+
+1) A GRAPH IS A COLLECTION OF VERTICES AND EDGES.
+2)TYPES OF EDGES :
+
+i)Directed edge:  one way connection.
+ii)Undirected edge: two way connection.
+iii) Directed graph: all direction edges.
+iv)Undirected Graph: All undirected edges.
+
+
+### INDEGREE AND OUTDEGREE OF A NODE ###
+
+1) INDEGREE: NO.OF EGDES THAT ARE GOING OUT OF THE NODES
+2) OUTDEGREE: NO. OF EDGES COMING INTO THE NODES.
+
+
+
+
+*************************************************************************
+
+QUESTION FROM PDF AND ANSWER ONLY THROUGH LOGIC NO NEED TO WRITE SYNTAX ONLY LOGIC
+
+####### STACK #######
+
+1) Find nth node from the end of a Linked List.
+ 
+
+
+
+
+
+
+
+

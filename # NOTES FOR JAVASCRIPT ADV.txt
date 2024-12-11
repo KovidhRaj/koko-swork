@@ -611,3 +611,137 @@ a.filter(greater_than_5)
 const n = [1,8,7,11]
 let sum = numbers.reduce(add)
 // add is a function, so sum will get the sum of 1+8+7+11
+# GUESS THE NUMBER GAME BY JAVASCRIPT
+
+function randomNum(min,max){
+    return Math.floor(Math.random()*(max - min + 1)) + min;
+}
+let num = parseInt(prompt("enter the number to be guessed between 1 to 100"),10);
+let chances = 0;
+let randomnumbers = randomNum(1,100);
+while(num !== randomnumbers){
+    if(num < randomnumbers){
+        console.log("very low ranged try something new");
+    }
+    else if(num > randomnumbers){
+        console.log("very high ranged try to keep it low");
+    }
+    chances++;
+    num = parseInt(prompt("Enter another number"),10);
+}
+console.log(`You have guessed the correct number: ${randomnumbers}`);
+console.log(`It took you ${chances} attempts`);
+
+
+JavaScript in the Browser
+
+
+JavaScript was initially created to make web pages alive. JS can be written right in a web page’s HTML to make it interactive.
+
+The browser has an embedded engine called the JavaScript engine or the JavaScript runtime.
+
+ 
+
+JavaScript’s ability in the browser is very limited to protect the user’s safety. For example, a webpage on http://google.com cannot access http://codeswear.com and steal information from there.
+
+ 
+
+Developer tools
+Every browser has some developer tasks which makes a developer’s life a lot easier.
+
+F12 on chrome opens Dev tools.
+
+ 
+
+Elements (All HTML Elements)
+
+Console (All the errors + logs)
+
+Network (All network requests)
+ 
+
+ 
+
+We can also write JavaScript commands in the console.
+
+12) JavaScript Script Tag
+
+The script tag is used to insert JS into an HTML page.
+
+The script tag can be used to insert external or internal scripts,
+
+<script>
+	alert(“Hello”)
+</script>
+// or…
+<script src = “/Js/file.js”> </script>
+ 
+
+The benefit of a separate JS file is that the browser will download it and store it in its cache.
+
+13) JavaScript Console Object
+
+The console object has several methods, log being one of them. Some of them are as follows:
+
+assert() – used to assert a condition
+clear() – clears the console
+log() – outputs a message to the console
+table() – Displays a tabular data
+warn() – used for warnings
+error() – used for errors
+info() – used for special information
+ 
+
+You will naturally remember some or all of these with time.
+
+Comprehensive list can be looked up on MDN
+
+13) JavaScript alert, prompt & confirm
+
+alert: Used to invoke a mini window with a msg.
+
+alert("hello")
+ 
+
+prompt: Used to take user input as string.
+
+inp = prompt("Hi", "No")
+// Here No is the optional default value
+ 
+
+confirm: Shows a message and waits for the user to press ok or cancel. Returns true for ok and false for cancel.
+
+ 
+
+The exact location and look is determined by the browser which is a limitation.
+
+14) DOM, BOM & Window Object
+
+We have the following when JavaScript runs in a browser,
+
+Window:
+
+DOM
+BOM
+JavaScript Core
+ 
+
+Window object represents browser window and provides methods to control it. It is a global object.
+
+ 
+
+Document Object Model (DOM)
+DOM represents the page content as HTML.
+
+document.body    // Page body as JS Object
+
+document.body.style.background="green"    
+//It changes page background to green
+ 
+
+Browser Object Model (BOM)
+The Browser Object Model (BOM) represents additional objects provided by the browser (host environment) for working with everything except the document.
+
+The functions alert/confirm/prompt are also a part of the BOM
+
+location.href = "https://codewithharry.com"    // Redirect to another URL

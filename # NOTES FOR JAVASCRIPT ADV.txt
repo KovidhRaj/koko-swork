@@ -468,3 +468,146 @@ Strings are immutable. In order to access the character at an index we use the f
 let name = “Harry”
 name[0]    // Prints H
 name[1]    // Prints a
+
+
+10) ARRAYS in JAVASCRIPT
+
+Arrays are variables which can hold more than one value.
+
+const fruits = [“banana”, “apple”, “grapes”]
+const a1 = [7,”Harry”,false]    //can hold different type of data
+ 
+
+Accessing Values
+let numbers = [1,2,7,9]
+numbers[0] – 1
+numbers[1] – 2
+ 
+
+Finding the length
+let numbers = [1,7,9,21]
+//Indexing start from 0, so 1 has 0 index value and 7 has 1 index value and so on.
+
+numbers[0] - 1
+numbers.length – 4
+ 
+
+Changing the values
+let numbers = [7,2,40,9]
+numbers[2] = 8
+// “numbers” now becomes [7,2,8,9]
+ 
+
+ 
+
+Arrays are mutable
+Array can be changed
+In JavaScript, arrays are objects. The typeof operator on arrays returns object.
+Const n = [1,7,9]
+typeof n     // returns object
+
+// Arrays can hold many values under a single name.
+
+
+There are some important array methods in JavaScript. Some of them are as follows:
+
+ 
+
+1. toString() - Converts an array to a string of comma separated values.
+let n = [1,7,9]
+n.toString()     // 1,7,9
+ 
+
+2. join() – joins all the array elements using a separator.
+let n = [7,9,13]
+n.join(“ ”)    // 7-9-13
+ 
+
+3. pop() – removes last element from the array.
+let n = [1,2,4]
+n.pop()        // updates the original array and returns the popped value
+ 
+
+4. push() – Adds a new element at the end of the array.
+let a = [7,1,2,8]
+a.push(9)    // modifies the original array and returns the new array length
+ 
+
+5. shift() – Removes first element and returns it.
+
+6. unshift() – Adds element to the beginning. Returns new array length.
+
+7. delete – Array elements can be deleted using the delete operator.
+let d = [7,8,9,10]
+delete d[1]    // delete is an operator
+ 
+
+8. concat() – used to join array to the given array.
+let a1 = [1,2,3]
+let a2 = [4,5,6]
+let a3 = [9,8,7]
+a1.concat(a2,a3)    // Returns [1,2,3,4,5,6,9,8,7]
+// concat returns a new array and does not change the existing arrays
+ 
+
+9. sort() – sort() method is used to sort an array alphabetically.
+let a = [7,9,8]
+a.sort()        // a changes to [7,8,9] – sort method modifies the original array
+sort() takes an optional compare function. If this function is provided as the first argument, the sort() function will consider these values (the values returned from the compare function) as the basis of sorting.
+
+ 
+
+10. splice() – splice can be used to add new items to an array.
+const numbers = [1,2,3,4,5]
+numbers.splice(2,1,23,24)
+//here, 2 is the position to add, 1 depicts the no. of elements to remove, and 23, 24 are the elements of be added.
+splice method returns deleted items, and modifies the array.
+
+ 
+
+11. slice() – slices out a piece from an array. It creates a new array.
+const num = [1,2,3,4]
+num.slice(2)        // [3,4]
+num.slice(1,3)        // [2,3]
+ 
+
+12. reverse() – Reverses the elements in the source array.
+
+
+Arrays can be looped through using the classical JavaScript for loop or through some other methods discusses below.
+
+ 
+
+1. forEach loop – calls a function, once for each array element.
+const a = [1,2,3]
+a.forEach((value,index,array) => {
+    // function logic
+});
+ 
+
+2. Array.from – used to create an array from any other object.
+Array.from(“Harry”)
+ 
+
+3. for … of – for-of loop can be used to get the values from an array.
+4. for … in – for-in loop can be used to get the keys from an array.
+
+
+Map, Filter & Reduce in JavaScript
+
+1. map() – creates a new array by performing some operation on each array element.
+const a = [1,2,3]
+a.map((value, index, array) => {
+    return value*value;
+})
+ 
+
+2. filter() – Filters an array with values that passes a test. Creates a new array.
+const a = [1,2,3,4,5]
+a.filter(greater_than_5)
+ 
+
+3. reduce method – Reduces an array to a single value.
+const n = [1,8,7,11]
+let sum = numbers.reduce(add)
+// add is a function, so sum will get the sum of 1+8+7+11

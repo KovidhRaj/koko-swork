@@ -745,3 +745,100 @@ The Browser Object Model (BOM) represents additional objects provided by the bro
 The functions alert/confirm/prompt are also a part of the BOM
 
 location.href = "https://codewithharry.com"    // Redirect to another URL
+
+
+EXERCISE 2 == SNAKE,WATER AND GUN
+
+SNAKE---->BEATS----->WATER
+WATER---->BEATS----->GUN
+GUN------>BEATS----->SNAKE
+
+Generate a Random Index
+Use Math.random() to generate a random number and map it to an index in the array.
+
+Math.random() generates a random number between 0 (inclusive) and 1 (exclusive).
+Multiply this value by the length of the choices array to get a range between 0 and choices.length (exclusive).
+Use Math.floor() to round the value down to the nearest integer (since array indices are whole numbers).
+
+
+function Randomattack(min,max){
+    return Math.floor(Math.random()*(max-min+1))+min;
+}
+let Count = 0;
+let Count2 = 0;
+let PlayAgain = true;
+while(PlayAgain){
+    let PlayerChoice = Number.parseInt(prompt("Choose any thing from Snake ,Water and Gun"));
+    let ComputerChoice = Randomattack(0,2);
+    const Choice = {Snake:0,Gun:1,Water:2};
+    if((PlayerChoice === 2 && ComputerChoice === 1) || (PlayerChoice === 1 && ComputerChoice === 0) || (PlayerChoice === 0 && ComputerChoice === 2)){
+        alert("Player has Won");
+        Count++;
+    }
+    else if(PlayerChoice === ComputerChoice){
+        alert("ITS A TIE!!");
+    }
+    else{
+        alert("Computer has Won");
+        Count2++;
+    }
+    PlayAgain = confirm("Do you Want to play Again?");
+}
+console.log(`Number of times Player has won ${Count}`);
+console.log(`Number of times Computer has won ${Count2}`);
+
+
+15) Walking the DOM
+
+DOM tree refers to the HTML page where all the nodes are objects. There can be 3 main types of nodes in the DOM tree:
+
+text nodes
+element nodes
+comment nodes
+ 
+
+In an HTML page, <html> is at the root and <head> and <body> are its children, etc.
+
+A text node is always a leaf of the tree.
+
+ 
+
+Auto correction
+If an erroneous HTML is encountered by the browser, it tends to correct it. For example, if we put something after the body, it is automatically moved inside the body. Another example is <table> tag which must contain <tbody>
+
+ 
+
+Walking the DOM
+
+
+ 
+
+Note: document.body can sometimes be null if the JavaScript is written before the body tag.
+
+16) Accessing Children of an Element 
+
+
+Children of an element
+Direct as well as deeply nested elements of an element are called its children.
+
+Child nodes -> Elements that are direct children. For example, head and body are children of <html>
+
+Descendant nodes -> All nested elements, children, their children and so on …
+
+ 
+
+firstChild, lastChild & childNodes
+element.firstChild -> first child element
+element.lastChild -> last child element
+element.childNodes -> All child nodes
+ 
+
+Following is always true:
+
+elem.childNodes[0] === elem.firstChild
+elem.childNodes[elem.childNodes.length-1] === elem.lastChild
+ 
+
+There is also a method elem.hasChildNodes() to check whether there are any child nodes.
+
+Note: childNodes looks like an array. But its not actually an array but a collection. We can use Array.from(collection) to convert it into an Array.    (Array methods won’t work)

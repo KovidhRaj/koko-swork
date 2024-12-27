@@ -938,3 +938,755 @@ There are three important methods to search the DOM
 2) elem.closest(CSS) – To look for the nearest ancestor that matches the given CSS-selector. The elem itself is also checked.
 
 3) elemA.contains(elemB) – Returns true if elemB is inside elemA (a descendant of elemA) or when elemA==elemB.
+
+20) innerHTML, outerHTML and other properties
+
+console.dir function
+
+console.log shows the element DOM true.
+
+console.dir shows the element as an object with its properties.
+
+ 
+
+tagName / nodeName
+
+Used to read tag name of an element.
+
+tagName – only exists for Element nodes
+
+nodeName – defined for any node (text, comment, etc)
+
+ 
+
+innerHTML and outerHTML
+
+The innerHTML property allows to get the HTML inside the element as a string. (valid for element nodes only)
+The outerHTML property contains the full HTML, innerHTML + the element itself.
+innerHTML is valid only for element nodes. For other node types we can use nodeValue or data.
+ 
+
+textContent
+
+Provides access to the text inside the element: only text, minus all tags.
+
+ 
+
+The hidden property
+
+The “hidden” attribute and the DOM property specifies whether the element is visible or not. 
+
+<div hidden> I am hidden </div>
+<div id = “element”> I can be hidden </div>
+
+<script>
+element.hidden = true;
+</script>
+
+21) HTML Attributes and their methods
+
+Attribute methods
+elem.hasAttribute(name) – Method to check for existence of an attribute.
+elem.getAttribute(name) – Method used to get the value of an attribute.
+elem.setAttribute(name,value) – Method used to set the value of an attribute.
+elem.removeAttribute(name) – Method to remove the attribute from elem.
+elem.attributes – Method to get the collection of all attributes.
+ 
+
+data– attributes
+We can always create custom attributes but the ones starting with “data-” are reserved for programmers use. They are available in a property named dataset.  
+
+If an element has an attribute named “data-one”, its available as element.dataset.one
+
+22) HTML Insertion Methods
+
+We looked at some ways to insert elements in the DOM. Here is another way:
+
+let div = document.createElement(‘div’)    //create
+div.className = “alert”    //set class
+div.innerHTML = “<span> hello </span>”
+document.body.append(div)
+ 
+
+Here are some more insertion methods:
+
+node.append(e) – append at the end of node
+node.prepend(e) – insert at the beginning of node
+node.before(e) – insert before node
+node.after(e) – insert after node
+node.replaceWith(e) – replaces node with the given node
+ 
+
+Quick Quiz: Try out all these methods with your own webpage.
+
+23) insertAdjacentHTML, insertAdjacentElement and insertAdjacentText
+
+
+insertAdjacentHTML/Text/Element
+This method is used to insert HTML. The first parameter is a code word, specifying where to insert. Must be one of the following:
+
+“beforebegin” – Insert HTML immediately before element
+“afterbegin” – Insert HTML into element at the beginning
+“beforeend” – Insert HTML into element at the end
+“afterend” – Insert HTML immediately after element
+The second parameter is an HTML string.
+
+ 
+
+Example:
+
+<div id=”div”> </div>
+<script>
+    div.insertAdjacentHTML(‘beforebegin’ , ’<p> Hello </p>’);
+    div.insertAdjacentHTML(‘afterend’ , ’<p> Bye </p>’);
+</script>
+The output would be:
+
+<p> Hello </p>
+<div id = “div”> </div>
+<p> Bye </p>
+ 
+
+Node removal
+To remove a node, there’s a method node.remove()
+
+let id1 = document.getElementById(“id1”)
+id1.remove()
+
+24) Changing HTML Classes using JavaScript: className and classList
+
+className and classList
+If we assign something to elem.className, it replaces the whole string of classes.
+
+ 
+
+Often, we want to add/remove/toggle a single class.
+
+elem.classList.add/remove(“class”) – Adds/removes a class
+elem.classList.toggle(“class”) – Adds the class if it doesn’t exist, otherwise removes it.
+elem.classList.contains(“class”) – checks for the given class, returns true/false.
+
+25) setInterval and setTimeout in JavaScript
+
+setTimeout and setInterval:
+setTimeout allows us to run a function once after the interval of time.
+
+Syntax of setTimeout is as follows:
+
+let timerId = setTimeout(function, <delay> (in ms), <agr1>, <arg2> )
+(Above line returns the timerId)
+ 
+
+clearTimeout is used to cancel the execution (in case we change our mind). For example:
+
+let timerId = setTimeout( ()=> alert(“never”), 1000);
+clearTimeout(timerId)    // cancel the execution
+ 
+
+setInterval method has a similar syntax as setTimeout:
+
+let timerId = setInterval(function, <delay>, <arg1>, <arg2>);
+ 
+
+All arguments have the same meaning. But unlike setTimeout, it runs the function not only once, but regularly after the given interval of time.
+
+To stop further calls, we can use clearInterval(timerId);
+
+26) Introduction to Browser Events 
+
+An event is a signal that something has happened. All the DOM nodes generate such signals.
+
+Some important DOM events are:
+
+Mouse events: click, context menu(right click), mouseover/mouseout, mousedown/mouseup, mousemove
+Keyboard events: keydown and keyup
+form element events: submit, focus, etc.
+Document events: DOMContentLoaded
+ 
+
+Handling Events
+Events can be handled through HTML attributes
+
+<input value = “Hey” onclick=”alert(‘hey’)” type=”button”>
+// Instead of alert(“hey”), we can write another JS function.
+Events can also be handled through the onclick property,
+
+elem.onclick = function(){
+            alert(“yes”)
+            }
+ 
+
+Note: Adding a handler with JS overwrites the existing handler.
+
+27) Handling Browser Events
+
+addEventListener and removeEventListener
+addEventListener is used to assign multiple handlers to an event.
+
+element.addEventListener(event, handler)
+element.removeEventListener(event, handler)
+// handler must be the same function object for this to work
+ 
+
+The Event Object
+When an event happens, the browser creates an event object, puts details into it and passes it as an argument to the handler
+
+elem.onclick = function(event){
+    …
+}
+
+event.type: Event type
+event.currentTarget: Element that handled the event
+event.clientX/ event.clientY: Coordinates of the cursor
+
+28) Introduction to Callbacks
+
+
+Asynchronous actions are the actions that we initiate now and they finish later. E.g. setTimeout 
+
+Synchronous actions are the actions that initiate and finish one-by-one.
+
+ 
+
+Callback functions
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete an action.
+
+Here is an example of a callback:
+
+function loadScript(src, callback){
+	let script = document.createElement(‘script’)
+	script.src = src
+	script.onload = () => callback(script)
+	document.head.append(script)
+}
+ 
+
+Now we can do something like this:
+
+loadScript(‘https://cdn.harry.com’, (script) => {
+	alert(‘script is loaded’)
+	alert(script.src)
+});
+ 
+
+This is called “callback.based” style of async programming. A function that does something asynchronously should provide a callback argument where we put the function to run after its complete.
+
+ 
+
+Handling errors
+We can handle callback errors by supplying error argument like this:
+
+function loadScript(src, callback){
+	…
+	…
+	script.onload = () => callback(null,script);
+	script.onerror = () => callback(new Error(‘failed’));
+	…
+}
+ 
+
+Then inside of loadScript call:
+
+loadScript(‘cdn/harry’, function(error, script)){\
+	…
+	if(error){
+		// handle error
+}
+else{
+	// script loaded
+}
+});
+
+## Callback Hell & Pyramid of Doom ##
+
+Pyramid of Doom
+When we have callback inside callbacks, the code gets difficult to manage.
+
+loadScript((…){
+	loadScript ..			// Pyramid of Doom
+		loadScript ..
+			loadScript ..
+				…
+As calls become more nested, the code becomes deeper and increasingly more difficult to manage, especially if we have real code instead of …
+
+This is sometimes called “callback hell” or “pyramid of doom”
+
+The “pyramid” of these calls grows towards the right with every asynchronous action. Soon it spirals out of control. So this way of coding isn’t very good!
+
+29) Introduction to Promises
+
+
+ 
+
+The solution to the callback hell is promises. A promise is a “promise of code execution”. The code either executes or fails, in both the cases the subscriber will be notified.
+
+The syntax of a Promise looks like this:
+
+let promise = new Promise(function(resolve, reject){	
+	// executor
+});
+// here resolve and reject both are predefined in JS engine
+ 
+
+resolve and reject are two callbacks provided by JavaScript itself. They are called like this:
+
+resolve(value) – If the job is finished successfully
+reject(error) – If the job fails
+ 
+
+The promise object returned by the new Promise constructor has these properties:
+
+state: Initially pending, then changes to either “fulfilled” when resolve is called or “rejected” when reject is called
+result – Initially undefined, then changes to value if resolved (resolve(value)) or error when rejected (reject(error)).
+
+30) Promise .then() and .catch() 
+
+Consumers: then & catch
+The consuming code can receive the final result of a promise through then & catch
+
+The most fundamental one is then
+
+promise.then(function(result){*/handle */},
+	function(error) {/* handle error */}
+);
+ 
+
+If we are interested only in successful competitions, we can provide only one function argument to .then():
+
+let promise = new Promise (resolve => {
+	setTimeout(() => resolve (“done”), 1000);
+});
+
+promise.then(alert);
+ 
+
+If we are interested only in errors, we can use null as the first argument: .then(null, f) or we can use catch:
+
+promise.catch(alert)
+promise.finally(()=> {}) is used to perform general cleanups
+ 
+
+Quick Quiz: Rewrite the loadScript function we wrote in the beginning of this chapter using promises.
+
+31) Promise Chaining .then() calls
+
+We can chain promises and make them pass the resolved values to one another like this,
+
+p.then(function(result) => {		// p is a promise
+	alert(result); return 2;
+	}).then …
+ 
+
+The idea is to pass the result through the chain of .then handlers.
+
+ 
+
+Here is the flow of execution
+
+1) The initial promise resolves in 1 seconds (Assumption)
+
+2) The next .then() handler is then called, which returns a new promise (resolved with 2 value)
+
+3) The next .then() gets the result of previous one and this keeps on going
+Every call to .then() returns a new promise whose value is passed to the next one and so on. We can even create custom promises inside .then()
+
+## Attaching Multiple Handlers to a Promise ##
+
+We can attach multiple handlers to one promise. 
+
+They don’t pass the result to each other; instead they process it independently.
+
+ 
+
+Let p is a promise
+
+p.then(handler 1)
+p.then(handler 2)
+p.then(handler 3)
+// All of the above promises run independently
+
+32) The Promise API
+
+Promise API
+There are 6 static methods of Promise class:
+
+1) Promise.all(promises) – Waits for all promises to resolve and returns the array of their results. if any one fails, it becomes the error and all other results are ignored.
+2) Promise.allSettled(promises) – Waits for all the promises to settle and returns their results as an array of objects with status and value.
+3) Promise.race(promises) – Waits for the first promise to settle and its result/error becomes the outcome.
+4) Promise.any(promises) – Waits for the first promise to fulfill (& not rejected), and its result becomes the outcome. Throws AggregateError if all the promises are rejected.
+5) Promise.resolve(value) – Makes a resolved promise with the given value.
+6) Promise.reject(error) – Makes a rejected promise with the given error.
+ 
+
+Quick Quiz – Try all these promise APIs on your custom promises.
+
+33) Async/Await in JavaScript
+
+Async/Await
+There is a special syntax to work with promises in JS.
+
+A function can be made async by using async keyword like this:
+
+async function harry(){
+	return 7;
+}
+ 
+
+An async function always returns a promise. Other values are wrapped in a promise automatically.
+
+We can do something like this:
+
+harry().then(alert)
+So, async ensures that the function returns a promise and wraps non promises in it.
+
+ 
+
+The await keyword
+There is another keyword called await that works only inside async functions
+
+let value = await promise;
+The await keyword makes JS wait until the promise settles and returns its value.
+
+ 
+
+Its just a more elegant syntax of getting the promise result than promise .then and it’s easier to read and write.
+
+34) Error Handling: try and catch
+
+We all make mistakes. Also, sometimes our script can have errors. Usually, a program halts when an error occurs.
+
+The try… catch syntax allows us to catch errors so that the script instead of dying can do something more reasonable.
+
+ 
+
+The try… catch syntax
+The try catch syntax has two main blocks:
+
+try and then catch
+
+try {
+	// try the code
+} catch(err) {			// The err variable contains an error object
+	// error handling
+}
+ 
+
+It works like this
+
+First the code in try is executed
+If there is no error, catch is ignored else catch is executed
+ 
+
+try catch works synchronously
+
+If an exception happens in scheduled code, like in setTimeout, then try… catch won’t catch it:
+
+try {
+	setTimeout(function(){
+		//error code		// script dies and catch won’t work
+	}
+catch …
+ 
+
+That’s because the function itself is executed later, when the engine has already left the try … catch construct.
+
+35) The Error Object & Custom Errors
+
+The error object
+For all the built-in errors, the error object has two main properties:
+
+try {
+	hey; 	//error variable not defined
+} catch(err) {
+	alert(err.name)
+	alert(err.message)
+	alert(err.stack)
+}
+ 
+
+Throwing custom Error
+We can throw our own error by using the throw syntax
+
+if(age>180){
+    throw new Error(“Invalid Age”)
+    …
+ 
+
+We can also throw a particular error by using the built-in constructor for standard errors:
+
+let error = new SyntaxError(message)
+        or
+            new ReferenceError(message)
+
+
+36) The Finally Clause 
+
+The finally clause
+The try… catch construct may have one more code clause: finally
+
+If it exists it runs in all cases:
+
+after try if there were no errors
+after catch if there were errors
+ 
+
+If there is a return in try, finally is executed just before the control returns to the outer code.
+
+
+## Exercise 4:
+Create a Digital Seconds clock using setInterval and Date object in JS.
+
+The Date object can be used to get the date, time, hours and seconds which can be then be updated using setInterval.
+
+Try to keep the UI good looking.
+
+ 
+
+Solution:
+ 
+
+index.html file
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>replit</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+                crossorigin="anonymous">
+
+</head>
+
+<body>
+        <div class="text-center fs-1 text">
+                <div class="badge bg-primary text-wrap text-center" id="time"></div>
+        </div>
+        <script src="script.js"></script>
+
+        <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+                crossorigin="anonymous"></script>
+
+        <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+</body>
+
+</html>
+ 
+
+script.js file
+
+function getDateTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        if (month.toString().length == 1) {
+                month = '0' + month;
+        }
+        if (day.toString().length == 1) {
+                day = '0' + day;
+        }
+        if (hour.toString().length == 1) {
+                hour = '0' + hour;
+        }
+        if (minute.toString().length == 1) {
+                minute = '0' + minute;
+        }
+        if (second.toString().length == 1) {
+                second = '0' + second;
+        }
+        var dateTime = year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
+        return dateTime;
+}
+
+// example usage: realtime clock
+setInterval(function() {
+        currentTime = getDateTime();
+        document.getElementById("time").innerHTML = currentTime;
+}, 1000);
+ 
+
+style.css file
+
+html, body {
+  height: 100%;
+  width: 100%;
+        background: #5a99dd !important;
+}
+
+37) Fetch API
+
+Fetch API
+fetch is used to get data over the network
+
+let promise = fetch(url, [options])    //without options, a get request is send
+ 
+
+Getting a response is a 2-stage process.
+
+1. An object of Response class containing “status” & “ok” properties
+
+    status – The http status code, Eg: 200
+
+    ok – Boolean, true if the HTTP status code is 200-299
+
+2. After that we need to call another method to access the body in different formats:
+
+    response.text() – Read & return the text
+
+    response.json() – parse the response as JSON
+
+ 
+
+Other methods include response.formData(), response.blob(), response.arrayBuffer() etc.
+
+Note – We can use only one body reading method.
+
+Example if we have already got the response with response.text() then response.json() won’t work.
+
+ 
+
+Response headers
+The response headers are available in response.headers
+
+
+Request headers
+To set a request header in fetch, we can use the headers option.
+
+let res = fetch(url, {
+		headers: {
+			Authentication: ‘Secret’
+			}
+		});
+
+## POST requests ##
+To make a POST request, we need to use fetch options
+
+method – HTTP-method, e.g POST
+body – the request body
+ 
+
+let response = await fetch(‘/url’,{
+			method: ‘POST’,
+			headers: {
+				‘Content Type’: ‘application/json’
+				},
+			body: ‘{“a”: ”harry”}’
+	});
+
+let result = await response.json()
+
+38) Cookies in JavaScript
+
+JavaScript Cookies
+Cookies are small strings of data stored directly in the browser
+
+In JS, document.cookie provides access to cookies.
+
+Cookies are set by a web server using the Set-Cookie HTTP-header. Next time when the request is sent to the same domain, the browser sends the cookie using the cookie HTTP-header.
+That way the server knows who sent the request
+
+ 
+
+We can also access cookies using document.cookie property:
+
+alert(document.cookie)
+		// Contains key=value pairs delimited by ;
+ 
+
+Writing to cookie
+An assignment to document.cookie is treated specially in a way that a write operation doesn’t touch other cookies.
+
+document.cookie = “user = Harry”
+// updates only cookie named user to Harry
+Quick Quiz: Print all the cookies on twitter.com
+
+ 
+
+encodeURIComponent
+This function helps keep the valid formatting. It is used like this:
+
+document.cookie = encodeURIComponent(name) + ‘=’ + 
+            encodeURIComponent(value)
+
+// This way, the special characters are encoded
+ 
+
+Cookie options
+Cookies have several options which can be provided after key=value to a set call like this:
+
+document.cookie = “user=John; path=/a; expires=Tue,29 March 2041 03:18:22 GMT”
+
+// path option makes the cookie visible at /a, /a/b etc. expires sets the cookie expiration time.
+ 
+
+Note:
+
+1) The name=value pair, after encodeURIComponent, should not exceed 4KB
+2) Total no of cookies per domain is limited to around 20+ (Exact number is browser dependent)
+
+39) localStorage & related methods
+
+localStorage
+localStorage is a web storage object which are not sent to server with each request.
+
+This data survives a full page refresh and even a full browser restart.
+
+ 
+
+There are the method provided by localStorage
+
+setItem(key, value) – Store key/value pair
+getItem(key) – get the value by key
+removeItem(key) – remove the key with its value
+clear() – delete everything
+key(index) – get the key on a given position
+length – the number of stored items
+ 
+
+We can get and set values like an object
+
+localStorage.one = 1
+alert(localStorage.one)
+delete localStorage.one
+ 
+
+Important Note
+
+Both key and values must be strings
+We can use the two JSON methods to store objects in localStorage:
+JSON.Stringify(object)    //Converts objects to JSON Strings
+JSON.parse(String)         //Converts string to objects (must be a valid JSON)
+
+40) sessionStorage & related methods
+
+sessionStorage
+Used less often than localStorage. Properties and methods are same as localStorage but:
+
+1) The sessionStorage exists only within the current browser tab. Another tab with same page will have a different storage.
+2) The data survives page refresh, but not closing/opening the tab.
+ 
+
+Storage Event
+When the data gets updated in localStorage or sessionStorage, storage event triggers with these properties:
+
+1) key – The key
+2) oldValue – Previous value
+3) newValue – New value
+4) url – Page URL
+5) StorageArea – local or sessionStorage
+ 
+
+We can listen the onstorage event of window which is triggered when updates are made to the same storage from the documents

@@ -1,0 +1,631 @@
+1) Introduction to Object Oriented Programming | JavaScript
+
+In programming we often take something and then extend it. For example we might want to create a user object and “admin” and “guest” will be slightly modified variants of it.
+
+ 
+
+[[ Prototype ]]
+JavaScript objects have a special property called prototype that is either null or references another object.
+
+
+
+ 
+
+When we try to read a property from a prototype and its missing, JavaScript automatically takes it from the prototype. This is called “prototype inheritance”
+
+
+2) Protypes and __proto__ in JavaScript 
+
+Setting Prototype
+We can set prototype by setting __proto__
+
+Now if we read a property from the object which is not in object and is present in the prototype, JS will take it from prototype.
+
+ 
+
+If we have a method in object, it will be called from the object. If its missing in object and present in prototype, it’s called from the prototype.
+
+3) Classes and Objects in JavaScript 
+
+In object-oriented programming, a class is an extensible program-code template for creating objects, providing initial values for state (member variables) and implementation of behavior (member functions)
+
+ 
+
+The basic syntax for writing a class is:
+
+class MyClass{
+    // class methods
+    constructor() { … }
+    method1() { … }
+    method2() { … }
+    }
+We can then use new MyClass() to create a new object with all the listed methods.
+
+4) CONSTRUCTORS
+
+The constructor method
+The constructor() method is called automatically by new, so we can initialize the object there.
+
+ 
+
+Quick Quiz: Create a class user and create a few methods along with a constructor.
+
+## Method Overriding
+
+If we create our own implementation of run, it will not be taken from the Animal class. This is called Method Overriding.
+
+## super keyword
+
+When we override a method, we don’t want the method of the previous class to go in vain. We can execute it using super keyword.
+
+super(a,b)    // call parent constructor
+
+run() {
+    super.run()
+    this.hide()
+}
+
+## Overriding Constructor
+
+With a constructor, things are a bit tricky/different. According to the specification, if a class extends another class and has no constructor, then the following empty constructor is generated
+
+class Monkey extends Animal {
+    // auto generated
+    constructor (…args){
+        super(…args);
+    }
+}
+
+// Happens if we don’t write our own constructor
+ 
+
+Constructors in inheriting classes must call super (…) and do it before using this.
+
+ 
+
+We can also use super.method() in a child method to call Parent Method.
+
+
+5) Inheritance & extends Keyword in JavaScript |
+
+
+Class Inheritance
+Class Inheritance is a way for one class to extend another class. This is done by using the extends keyword.
+
+ 
+
+The extends keyword
+extends keyword is used to extend another class.
+
+class Child extends Parent
+ 
+
+We can create a class Monkey that inherits from Animal
+
+class Monkey extends Animal {
+    hide() {
+        alert(`${this.name} hides!`);
+    }
+}
+
+let monkey = new Monkey(“Monu”)
+    monkey.run(7);    // from Animal
+    monkey.hide();
+
+6) Static Method in JavaScript
+
+Static methods are used to implement functions that belong to a class as a whole and not to any particular object.
+
+ 
+
+We can assign a static method as follows:
+
+class Employee{
+    static sMethod() {
+        alert(“Hey”);
+    }
+}
+
+Employee.sMethod()
+ 
+
+Static methods aren’t available for individual objects.
+
+7) getters, setters & instanceOf Operator 
+
+Getters and Setters
+Classes may include getters and setters to get & set the computed properties.
+
+Example:
+
+class Person{
+    …
+    get name(){
+        return this._name;
+    }
+    set name(newName){
+        this._name = newName;
+}
+ 
+
+First the name property is changed to _name to avoid the name collision with the getter & setter. Then the getter uses the get keyword as shown above.
+
+ 
+
+instanceof Operator
+The instanceof Operator allows to check whether an object belongs to a certain class
+
+The syntax is:
+
+<obj> instanceof <class>
+
+It returns true if obj belongs to the Class or any other class inheriting from it.
+
+8) IIFE - Immediately Invoked Function Expressions
+
+There are some JS concepts which make the life of a developer extremely simple. We will discuss some of those in this chapter.
+
+ 
+
+IIFE
+IIFE is a JavaScript function that runs as soon as it is defined.
+
+( function() {
+    …                // IIFE Syntax
+    …
+    }) ();
+It is used to avoid polluting the global namespace, execute an async-await, etc.
+
+9) Destructuring assignment and Spread Operator 
+
+
+Destructuring
+Destructuring assignment is used to unpack values from an array, or properties from objects, into distinct variables.
+
+let [x,y] = [7,20]
+// x will be assigned 7 and y, 20
+
+[10,x, …rest] = [10,80,7,11,21,88]
+// x will be 80 and rest will be [7,11,21,88]
+Similarly, we can destructure objects on the left-hand side of the assignment.
+
+const obj = {a:1, b:2}
+const {a,b} = obj;
+Some more examples can be found on MDN docs.
+
+ 
+
+Spread Syntax
+Spread syntax allows an iterable such as an array or String to be expanded in places where zero or more arguments are expected. In an object literal, the spread syntax enumerates the properties of an object and adds the key-value pairs to the object being created.
+
+Example:
+
+// Example 1
+
+const arr = [1,7,11]
+const obj = { …arr };    //{0:1,1:7,2:11}
+// Example 2
+
+const nums = [1,2,7]
+console.log(sum(…nums))    // 10
+Other examples can be found on MDN docs
+
+ 
+
+Quick Quiz: 
+
+Output of the following??
+
+const a = “the”, b = “no”
+const c = {a,b}
+console.log(c)
+
+10) local and global Scope in JavaScript
+
+
+local, global & block scopes
+ 
+
+JS has three types of scopes:
+
+1) Block scope
+2) Function scope
+3) Global scope
+ 
+
+let & const provide block level scope which means that the variables declared inside a { } cannot be accessed from outside the block.
+
+{
+    let a = 27;
+}
+// a is not available here
+ 
+
+Variables declared within a JS function, become local to the function.
+
+A variable declared outside a function, becomes global.
+
+11) Hoisting in JavaScript
+
+Hoisting
+Hoisting refers to the process whereby the interpreter appears to move the declarations to the top of the code before executions.
+
+Variables can this be referenced before they are declared in JavaScript.
+
+hello(“Harry”)
+function hello(name){
+    …                    // Works!
+}
+Important Note: JavaScript only hoists declarations, not initializations. The variable will be undefined until the line where its initialized is reached.
+
+ 
+
+Hoisting with let and var
+With let and var hoisting is different
+
+console.log(num)        // Error if let or const
+let num = 6;            // with var undefined is printed
+Function expressions and class expressions are not hoisted.
+
+12) Closures in JavaScript
+
+We already know JS variables can belong to the local or global scope.
+
+Closures are used to make global variables local (private).
+
+ 
+
+It is a JS feature in which the inner function has access to the outer function variables. Closure is created with the creation of a function. 
+
+ 
+
+A JavaScript feature in which the inner function has access to the outer function variable is called a closure.
+
+It has access to its own scope.
+It has access to the variables of the outer function.
+It has access to the global variables.
+ 
+
+Code:
+
+// function init() {
+//   var name = 'Mozilla'; // name is a local variable created by init
+//   function displayName() {
+//     // displayName() is the inner function, a closure
+//     console.log(name); // use variable declared in the parent function
+//   }
+//   name = "Harry"
+//   return displayName;
+// }
+// let c = init();
+// c()
+
+13) Arrow Functions Revisited
+
+
+Arrow functions provide  a more accurate way to write the  functions in JavaScript. We can write smaller function syntax. Arrow functions make your code more readable and structured.
+
+ 
+
+Normal JS function:
+
+greetings = demoFunction() {
+  return "Hello CWH Fam";
+}
+ 
+
+Arrow Function:
+
+greetings = () => {
+  return “Hello CWH Fam”;
+}
+ 
+
+You can create Arrow Functions of different kind:
+
+Arrow Function with Parameters
+Arrow Function Without Parentheses
+
+CODE:
+
+const sayHello = name => {
+  console.log("greeting" + " " + name)
+  console.log("hi")
+}
+
+const x = {
+  name: "Harry",
+  role: "Js Developer",
+  exp: 30,
+  show: function() {
+    // let that = this
+    // console.log(this)
+    setTimeout(() => {
+      console.log(`The name is ${this.name}\nThe role is ${this.role}`)
+    }, 2000)
+  }
+}
+sayHello("Harry", "Good Afternoon")
+// console.log(x.name, x.exp)
+// x.show()
+
+14) JAVASCRIPT ON THE SERVER
+
+We have seen client-side JavaScript, and we also saw how we can use JS in front-end. Now we will see how we can use JS in back-end and can become a full stack developer. 
+
+When we run JS in browser’s console, then it runs on client side.
+
+To run JS on the server, we use node JS. 
+
+ 
+
+We can only see the front-end code of any website but we cannot see the backend as it is present on their server and we cannot access that code, so if we visit any site and checks the “view page source” then it only shows the front-end code of that site, and not the backend code.
+
+ 
+
+Download node JS and install it on your system.
+
+ 
+
+Check if node is successfully working or not:
+
+Open terminal and type node, then you will get the version details of the node.
+Then you start typing the code and you will get the output right away.
+
+
+ 
+
+Code:
+ 
+
+index.js File:
+
+console.log("Hey I am using Node.js")
+ 
+
+Packager Files:
+package-lock.json
+
+package.json
+
+15) npm and Node.js Packages
+
+npm stands for node package manager that helps you to manage packages in node.js
+
+After installing node.js, we can use JS using VS code, as we will use node to run the JS file in VS Code terminal.
+
+
+
+ 
+
+• npm init
+This command will allow you to create a new package in JS.
+
+It asks for name of package and some other information.
+
+ 
+
+• npm init -y
+This command will directly create a package.json file without asking for name and other details of the package.
+
+ 
+
+After initializing package using npm, we can now install third party packages or modules.
+
+ 
+
+Now we will install pdf-node which is a JavaScript PDF generation library for NodeJs.
+
+Type: “npm i pdf-node” in VS code terminal and hit enter.
+
+Then a new folder with the name as node_modules get created that contains all the 3rd party packages.     
+
+ 
+
+index.js File:
+
+//Required package
+var pdf = require("pdf-node");
+var fs = require("fs");
+
+// Read HTML Template
+var html = fs.readFileSync("template.html", "utf8");
+var options = {
+    format: "A3",
+    orientation: "portrait",
+    border: "10mm",
+    header: {
+        height: "45mm",
+        contents: '<div style="text-align: center;">Author: Shyam Hajare</div>'
+    },
+    footer: {
+        height: "28mm",
+        contents: {
+            first: 'Cover page',
+            2: 'Second page', // Any page number is working. 1-based index
+            default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
+            last: 'Last Page'
+        }
+    }
+};
+
+var users = [
+    {
+      name: "tom",
+      age: "21",
+    },
+    {
+      name: "dick",
+      age: "23",
+    },
+    {
+      name: "harry",
+      age: "29",
+    },
+  ];
+  var document = {
+    html: html,
+    data: {
+      users: users,
+    },
+    path: "./output.pdf",
+    type: "pdf",
+  };
+  // By default a file is created but you could switch between Buffer and Streams by using "buffer" or "stream" respectively.
+// console.log(pdf.create)
+  pdf(document, options)
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+
+16) Modules in JavaScript
+
+
+You can break your code into separate files with the help of JavaScript modules.
+
+It’s easier to maintain the code-base with this.
+
+The import and export statements are used for this purpose.
+
+
+Export:
+This keyword is used to export a function or variable from any file.
+
+There are two types of exports: Named and Default
+
+ 
+
+Named Exports
+Let’s create a file named demo.js, and here we will perform the export.
+
+const name = “Harry”;
+let age = 40;
+export {name, age};
+ 
+
+Default Exports
+Let’s create a file named demo1.js, we will use this for demonstrating default export
+
+const hello = ()=>{
+    console.log(“Hello Harry”);
+}
+
+export default hello;
+ 
+
+Import:
+There are two ways to import a module, based on if there are named exports or default exports.
+
+Named exports are constructed using curly braces.
+Default exports do not use any braces.
+ 
+Import from named exports
+import {name, age} from "./demo.js";
+ 
+
+Import from default exports
+import hello from "./demo1.js";
+ 
+
+Code:
+
+module1.js File:
+
+const hello = ()=>{
+    console.log("Hello Harry")
+}
+
+const ahello = (name)=>{
+    console.log("Hello " + name)
+}
+
+module.exports = {hello, ahello};// same as below line
+// module.exports = {hello: hello, ahello: ahello};
+
+module2.js File:
+
+// ES6 Modules
+export const hello = ()=>{
+    console.log("Hello Harry")
+}
+
+export const ahello = (name)=>{
+    console.log("Hello " + name)
+}
+
+const harry = ()=>{
+    console.log("Hello " + "Harry")
+}
+
+export default harry;
+ 
+97_modules.js File:
+
+// const {hello, ahello} = require("./module1") // commonjs
+import harry, {hello, ahello} from "./module2.js";
+hello()
+ahello("Shivani")
+ahello("Garima")
+ahello("Nitika")
+ahello("Aishwarya")
+harry()
+
+17) Using Express.js to Create a Backend Server
+
+We can use a backend framework called Express to ease server-side development with node and offer an easier interface to work with the built-in http module.
+
+ 
+
+To install express.js:
+
+npm install express
+
+18) Regular Expressions in JavaScript
+
+A RegEx or Regular Expression is an object that describes a sequence of characters used for defining a search pattern. 
+
+ 
+
+A regular expression can be a single character or a more complex pattern.
+Text search and text replace operations can be performed with regular expressions.
+ 
+
+Syntax:
+
+/pattern/modifiers;
+
+-    pattern is used in a search
+-    modifier is used to make the search case-insensitive
+ 
+
+Regular expressions are used with the two string methods, search() and replace().
+
+The search method uses an expression to find a match and then returns the position of the match.
+The replace method returns a modified string.
+
+19) Event Loop in JavaScript
+
+1) JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting, and processing events, and executing queued sub-tasks 
+
+2) The event loop pushes the tasks from the task queue to the call stack 
+setTimeout(func1, 0) can be used to defer a function until all the pending tasks (so far) have been executed 
+
+3) We can see how these things work in action by visiting
+
+
+index.js File:
+
+setTimeout(function timer() {
+  console.log('You clicked the button!');
+}, 2000); 
+
+console.log("Hi!");
+
+setTimeout(function timeout() {
+  console.log("Click the button!");
+}, 5000);
+
+console.log("Welcome to loupe.");
